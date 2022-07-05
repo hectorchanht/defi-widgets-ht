@@ -1,17 +1,39 @@
 import { ContractInteract } from '@widgets/contract-interact';
+import {
+  addNewTransactionToList, openTransModal, startPendingTransactionCheck
+} from '@widgets/transaction-confirm';
 import { TronWebConnector } from '@widgets/tronweb-connector';
-import { Steps } from 'antd';
+import { Modal, Steps } from 'antd';
 import BigNumber from 'bignumber.js';
 import { useEffect, useState } from 'react';
 import '../App.scss';
-import {
-  openTransModal,
-  addNewTransactionToList,
-  startPendingTransactionCheck
-} from '@widgets/transaction-confirm';
 import Menu from '../components/menu';
 const { trigger, sign, broadcast, send, sendTrx } = ContractInteract;
 const { Step } = Steps;
+
+const ContractExecutionFlowModal = ({ children }) => {
+  const [isModalVisible, setIsModalVisible] = useState(false);
+
+  const showModal = () => {
+    setIsModalVisible(true);
+  };
+
+  const handleOk = () => {
+    setIsModalVisible(false);
+  };
+
+  const handleCancel = () => {
+    setIsModalVisible(false);
+  };
+  return <>
+    <div className='items'>
+      <div className='item' onClick={showModal} >Show Contract Execution Flow Modal</div>
+    </div>
+    <Modal title="Contract Execution Flow" visible={isModalVisible} footer={null} onOk={handleOk} onCancel={handleCancel}>
+      {children}
+    </Modal>
+  </>
+}
 
 function App() {
   const [defaultAccount, setDefaultAccount] = useState('');
@@ -45,7 +67,7 @@ function App() {
   }
 
   const sendTrxFunc = async () => {
-    openTransModal({step: 1});
+    openTransModal({ step: 1 });
     nextStep();
 
     const res = await sendTrx(
@@ -55,12 +77,12 @@ function App() {
 
     if (res?.result) {
       const tx = res
-      openTransModal({step: 2, txId: tx.txid}, {title: 'Send TRX success'});
-      addNewTransactionToList(tx, {title: 'Send 1 TRX to somewhere'});
+      openTransModal({ step: 2, txId: tx.txid }, { title: 'Send TRX success' });
+      addNewTransactionToList(tx, { title: 'Send 1 TRX to somewhere' });
       startPendingTransactionCheck(3000);
       nextStep();
     } else {
-      openTransModal({step: 3}, {title: 'Send TRX failed'});
+      openTransModal({ step: 3 }, { title: 'Send TRX failed' });
       backStep();
     }
   }
@@ -85,16 +107,16 @@ function App() {
           </div>
         }
         <br />
-        
-        Contract execution flow
 
-        <Steps direction="vertical" current={sendTrxStep}>
-          <Step title="Connection" description="Connect the dapp with your wallet" />
-          <Step title="Initiation" description="Initiate the contract function by pressing 'Send TRX'" />
-          <Step title="Signing" description="Sign the function that you would like to execute" />
-          <Step title="Broadcast" description="Wait for the signed transaction being broadcast to all nodes" />
-          {/* <Step title="On-chain" description="The transaction is on-chain now, Congrats" /> */}
-        </Steps>
+        <ContractExecutionFlowModal>
+          <Steps direction="vertical" current={sendTrxStep}>
+            <Step title="Connection" description="Connect the dapp with your wallet" />
+            <Step title="Initiation" description="Initiate the contract function by pressing 'Send TRX'" />
+            <Step title="Signing" description="Sign the function that you would like to execute" />
+            <Step title="Broadcast" description="Wait for the signed transaction being broadcast to all nodes" />
+            {/* <Step title="Synchronization" description="The transaction is getting confirmed on chain, Congrats" /> */}
+          </Steps>
+        </ContractExecutionFlowModal>
       </section>
     </div>
   );
