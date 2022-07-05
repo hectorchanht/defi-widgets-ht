@@ -1,7 +1,5 @@
 import { ContractInteract } from '@widgets/contract-interact';
-import {
-  addNewTransactionToList, openTransModal, startPendingTransactionCheck
-} from '@widgets/transaction-confirm';
+import { addNewTransactionToList, openTransModal, startPendingTransactionCheck } from '@widgets/transaction-confirm';
 import { TronWebConnector } from '@widgets/tronweb-connector';
 import { Modal, Steps } from 'antd';
 import BigNumber from 'bignumber.js';
@@ -13,28 +11,24 @@ const { Step } = Steps;
 
 const ContractExecutionFlowModal = ({ children, toggle }) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
+
   React.useEffect(() => {
     if (toggle) {
       setIsModalVisible(d => !d)
     }
   }, [toggle]);
 
-  const showModal = () => {
-    setIsModalVisible(true);
-  };
+  const showModal = () => setIsModalVisible(true);
 
-  const handleOk = () => {
-    setIsModalVisible(false);
-  };
+  const handleCancel = () => setIsModalVisible(false);
 
-  const handleCancel = () => {
-    setIsModalVisible(false);
-  };
   return <>
     <div className='items'>
       <div className='item' onClick={showModal} >Show Contract Execution Flow Modal</div>
     </div>
-    <Modal title="Contract Execution Flow" visible={isModalVisible} footer={null} onOk={handleOk} onCancel={handleCancel}>
+    <Modal
+      style={{ top: '30%' }} title="Contract Execution Flow"
+      visible={isModalVisible} footer={null} onCancel={handleCancel}>
       {children}
     </Modal>
   </>
@@ -73,7 +67,6 @@ function App() {
   }
 
   const sendTrxFunc = async () => {
-    // todo: open flow modal
     setIsModalVisible(true)
     openTransModal({ step: 1 });
     nextStep();
