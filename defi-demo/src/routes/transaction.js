@@ -87,7 +87,7 @@ function App() {
         
         Contract execution flow
 
-        <Steps style={{paddingLeft: '30%', backgroundColor: 'wheat'}} direction="vertical" current={sendTrxStep}>
+        <Steps direction="vertical" current={sendTrxStep}>
           <Step title="Connection" description="Connect the dapp with your wallet" />
           <Step title="Initiation" description="Initiate the contract function by pressing 'Send TRX'" />
           <Step title="Signing" description="Sign the function that you would like to execute" />
