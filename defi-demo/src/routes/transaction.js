@@ -5,14 +5,19 @@ import {
 import { TronWebConnector } from '@widgets/tronweb-connector';
 import { Modal, Steps } from 'antd';
 import BigNumber from 'bignumber.js';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import '../App.scss';
 import Menu from '../components/menu';
 const { trigger, sign, broadcast, send, sendTrx } = ContractInteract;
 const { Step } = Steps;
 
-const ContractExecutionFlowModal = ({ children }) => {
+const ContractExecutionFlowModal = ({ children, toggle }) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
+  React.useEffect(() => {
+    if (toggle) {
+      setIsModalVisible(d => !d)
+    }
+  }, [toggle]);
 
   const showModal = () => {
     setIsModalVisible(true);
@@ -39,6 +44,7 @@ function App() {
   const [defaultAccount, setDefaultAccount] = useState('');
   const [sendTrxStep, setSendTrxStep] = useState(0);
   const [defaultAccountBalance, setDefaultAccountBalance] = useState('--');
+  const [isModalVisible, setIsModalVisible] = useState(false);
 
   const trxPrecision = 1e6;
 
@@ -67,6 +73,8 @@ function App() {
   }
 
   const sendTrxFunc = async () => {
+    // todo: open flow modal
+    setIsModalVisible(true)
     openTransModal({ step: 1 });
     nextStep();
 
@@ -108,7 +116,7 @@ function App() {
         }
         <br />
 
-        <ContractExecutionFlowModal>
+        <ContractExecutionFlowModal toggle={isModalVisible}>
           <Steps direction="vertical" current={sendTrxStep}>
             <Step title="Connection" description="Connect the dapp with your wallet" />
             <Step title="Initiation" description="Initiate the contract function by pressing 'Send TRX'" />
