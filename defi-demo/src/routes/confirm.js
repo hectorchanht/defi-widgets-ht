@@ -1,17 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import '../App.scss';
-import BigNumber from 'bignumber.js';
-import {
-    openTransModal,
-    addNewTransactionToList,
-    getTransactionInfo,
-    getDescription,
-    checkPendingTransactions,
-    logTransaction,
-    updateTransactionInList,
-    startPendingTransactionCheck
-} from '@widgets/transaction-confirm';
 import { ContractInteract } from '@widgets/contract-interact';
+import {
+  addNewTransactionToList, checkPendingTransactions, getDescription, getTransactionInfo, logTransaction, startPendingTransactionCheck, updateTransactionInList
+} from '@widgets/transaction-confirm';
+import BigNumber from 'bignumber.js';
+import React, { useEffect, useState } from 'react';
+import '../App.scss';
 import Menu from '../components/menu';
 const { trigger, sign, broadcast, send } = ContractInteract;
 
@@ -26,14 +19,14 @@ function App() {
   const feeLimitMin = 100000000;
   const feeLimitCommon = 400000000;
 
-  useEffect(() => {}, []);
+  useEffect(() => { }, []);
   // 1
   const openTransModal = async () => {
     const txId = await toApproveLP('TDqjTkZ63yHB19w2n7vPm2qAkLHwn9fKKk', 'TH1SvdkzHbeN7gYPKhtoDPtFe3V2nj9yVv', {
-        continuous: true
+      continuous: true
     });
     if (txId) {
-        lockSun();
+      lockSun();
     }
   };
 
@@ -43,14 +36,14 @@ function App() {
     intlObj
   ) => {
     const result = await triggerFn(
-        tokenAddress, // sun token test
-        'approve(address,uint256)',
-        [
-            { type: 'address', value: exchangeAddress },
-            { type: 'uint256', value: MAX_UINT256 }
-        ],
-        { feeLimit: feeLimitMin },
-        intlObj
+      tokenAddress, // sun token test
+      'approve(address,uint256)',
+      [
+        { type: 'address', value: exchangeAddress },
+        { type: 'uint256', value: MAX_UINT256 }
+      ],
+      { feeLimit: feeLimitMin },
+      intlObj
     );
     return result && result.transaction ? result.transaction.txID : '';
   };
@@ -68,10 +61,10 @@ function App() {
       openTransModal({ step: 1 }, intlObj);
       // console.log('address', address, 'functionSelector', functionSelector, 'parameters', parameters);
       const transaction = await trigger(
-          address,
-          functionSelector,
-          Object.assign({ feeLimit: feeLimitCommon }, options),
-          parameters
+        address,
+        functionSelector,
+        Object.assign({ feeLimit: feeLimitCommon }, options),
+        parameters
       );
       // console.log(transaction, 'transaction');
       if (!transaction.result || !transaction.result.result) {
@@ -105,7 +98,7 @@ function App() {
     } catch (error) {
       if (error) {
         if (error && error.message == 'Confirmation declined by user') {
-            openTransModal({ step: 3 }, intlObj);
+          openTransModal({ step: 3 }, intlObj);
         }
       }
       console.log(`trigger error ${address} - ${functionSelector}`, error.message ? error.message : error);
@@ -115,26 +108,26 @@ function App() {
 
   const lockSun = async (value = 0.1, time = new Date('2022-10-10').getTime() / 1000) => {
     const intlObj = {
-        title: `质押锁定 ${value} SUN`,
-        obj: {
-            value,
-            symbol: 'SUN'
-        }
+      title: `质押锁定 ${value} SUN`,
+      obj: {
+        value,
+        symbol: 'SUN'
+      }
     };
     let txId = await stakeSSP2(
-        new BigNumber(value).times(1e18).toString(),
-        false,
-        new BigNumber(time).toString(),
-        intlObj
+      new BigNumber(value).times(1e18).toString(),
+      false,
+      new BigNumber(time).toString(),
+      intlObj
     );
     if (txId) {
-        setTxID(txId);
-        setIntlObj(intlObj);
-        getDescriptionFn(1, intlObj, txId);
-        setTimeout(() => {
-            // props.cb();
-            getDescriptionFn(2, intlObj, txId);
-        }, 5000);
+      setTxID(txId);
+      setIntlObj(intlObj);
+      getDescriptionFn(1, intlObj, txId);
+      setTimeout(() => {
+        // props.cb();
+        getDescriptionFn(2, intlObj, txId);
+      }, 5000);
     }
   };
 
@@ -150,9 +143,9 @@ function App() {
       address,
       'stake(uint256,bool,uint256)',
       [
-          { type: 'uint256', value: amount },
-          { type: 'bool', value: lock },
-          { type: 'uint256', value: unlockTime }
+        { type: 'uint256', value: amount },
+        { type: 'bool', value: lock },
+        { type: 'uint256', value: unlockTime }
       ],
       {},
       intlObj,
@@ -163,10 +156,10 @@ function App() {
   // 2
   const addNewTransactionToListFn = () => {
     if (txID) {
-        addNewTransactionToList(txID, intlObj);
-        console.log('addNewTransactionToList', { txID, intlObj });
+      addNewTransactionToList(txID, intlObj);
+      console.log('addNewTransactionToList', { txID, intlObj });
     } else {
-        console.log('addNewTransactionToList Error: No Transactions');
+      console.log('addNewTransactionToList Error: No Transactions');
     }
   };
   // 3
@@ -179,12 +172,12 @@ function App() {
   // 4
   const getDescriptionFn = async (status = 1, customObj = intlObj, tx = txID) => {
     let result = await getDescription(
-        status,
-        {
-            tx,
-            lang: 'zh'
-        },
-        customObj.title
+      status,
+      {
+        tx,
+        lang: 'zh'
+      },
+      customObj.title
     );
     setDescription(result);
     console.log('GetDescription', result, customObj, status);
@@ -200,32 +193,32 @@ function App() {
   const logTransactionFn = async (status = 1) => {
     logTransaction({ checkCnt: 0, customObj: intlObj, showPending: true, status, title: '', tx: txID }, status);
     console.log('LogTransaction: ', {
-        checkCnt: 0,
-        customObj: intlObj,
-        showPending: true,
-        status,
-        title: '',
-        txID
+      checkCnt: 0,
+      customObj: intlObj,
+      showPending: true,
+      status,
+      title: '',
+      txID
     });
   };
 
   // 7
   const updateTransactionInListFn = async () => {
     updateTransactionInList({
-        checkCnt: 0,
-        customObj: intlObj,
-        showPending: true,
-        status: 1,
-        title: 'updateTransactionInList',
-        tx: txID
+      checkCnt: 0,
+      customObj: intlObj,
+      showPending: true,
+      status: 1,
+      title: 'updateTransactionInList',
+      tx: txID
     });
     console.log('updateTransactionInList: ', {
-        checkCnt: 0,
-        customObj: intlObj,
-        showPending: true,
-        status: 1,
-        title: 'updateTransactionInList',
-        txID
+      checkCnt: 0,
+      customObj: intlObj,
+      showPending: true,
+      status: 1,
+      title: 'updateTransactionInList',
+      txID
     });
   };
 
