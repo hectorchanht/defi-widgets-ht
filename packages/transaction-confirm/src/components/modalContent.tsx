@@ -23,7 +23,7 @@ const modalContent = (
   customObj: CustomObjType = {}
 ) => {
   // const { stepInfo, customObj } = this.props;
-  const tronscanLink = 'https://tronscan.io/#';
+  const tronscanLink = 'https://nile.tronscan.io/#';
   const { step, txId } = stepInfo;
 
   if (!step) return;

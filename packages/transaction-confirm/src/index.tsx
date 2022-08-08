@@ -180,7 +180,7 @@ export const getDescription = async (
   item: any,
   text: string,
 ) => {
-  const tronscanLink = 'https://tronscan.io/#';
+  const tronscanLink = 'https://nile.tronscan.io/#';
   // const tronscanLink = 'https://nile.tronscan.org//#';
   const { tx, lang, view_on_tronscan } = item;
   const { txid } = tx;

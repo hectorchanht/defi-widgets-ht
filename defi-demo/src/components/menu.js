@@ -4,13 +4,12 @@ import { Link } from 'react-router-dom';
 function Menu() {
     return (
         <section className="menu">
-            <h3>Menu: </h3>
-            <Link to="/connector">Connector Demo</Link>
-            <Link to="/contract">Contract-Interact Demo</Link>
-            {/* <Link to="/confirm">Transaction-Confirm Demo</Link> */}
-            <Link to="/transaction">Transaction-Confirm Demo</Link>
-            <Link to="/tokenlist">Token-List Demo</Link>
-            <Link to="/signsteps">Sign-Steps Demo</Link>
+            <Link to="/connector">Connector</Link>
+            <Link to="/contract">Contract-Interact</Link>
+            <Link to="/confirm">Transaction-Confirm</Link>
+            <Link to="/transaction">Transaction-Confirm</Link>
+            <Link to="/tokenlist">Token-List</Link>
+            <Link to="/signsteps">Sign-Steps</Link>
         </section>
     )
 }
