@@ -59,6 +59,6 @@
     "typescript": "^3.9.10"
   },
   "dependencies": {
-    "@widgets/contract-interact": "file:../contract-interact"
+    "@widgets/contract-interact": "0.1.0"
   }
 }
