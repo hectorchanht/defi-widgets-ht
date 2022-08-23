@@ -77,19 +77,12 @@ Developer can listen to the TronLink events using the `on` method
 
 ### Event action name
 
-| Event action | Description | Version started to support |
-| ----------- | ----------- | ----------- |
-| tabReply | TronLink initialization complete | 3.0.0 |
-| setAccount | when account was set | 3.0.0 |
-| setNode | when node was set | 3.0.0 |
-| accountsChanged | when switching accounts | 3.22.0 |
-| chainChanged | when switching chains | 3.22.0 |
-| connectWeb | when the `active connection` dapp is made in the plugin popup page | 3.22.0 |
-| acceptWeb | when a user `accepts` an authorization request initiated by dapp in the plugin whitelist authorization page | 3.22.0 |
-| disconnectWeb | when the `active reject` dapp is in the plugin popup page | 3.22.0 |
-| rejectWeb | when a user `rejects` a dapp initiated authorization request on the plugin whitelist authorization page | 3.22.0 |
-| connect | when a user accepts to connects to the dapp on the popup screen | 3.22.1 |
-| disconnect | when a user rejects to connect to the dapp on the popup screen | 3.22.1 |
+| Event action | Description |
+| ----------- | ----------- |
+| accountsChanged | when switching accounts |
+| chainChanged | when switching chains |
+| connectWeb | when the `active connection` dapp is made in the plugin popup page |
+| disconnectWeb | when the `active reject` dapp is in the plugin popup page |
 
 ### Example
 ```
