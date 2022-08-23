@@ -13,6 +13,11 @@ function App() {
 
   const trxPrecision = 1e6;
 
+  const initUserInfo = async (userAddress) => {
+    setDefaultAccount(userAddress);
+    updateAccountBalance(userAddress);
+  };
+
   useEffect(() => {
     if (window.tronWeb?.defaultAddress) {
       initUserInfo(window.tronWeb.defaultAddress.base58);
@@ -22,11 +27,6 @@ function App() {
     setAdded(false);
   }, []);
 
-  const initUserInfo = async (userAddress) => {
-    setDefaultAccount(userAddress);
-    updateAccountBalance(userAddress);
-  };
-
   const resetDefaultAccount = () => {
     setDefaultAccount('');
     setDefaultAccountBalance('--');
@@ -34,12 +34,11 @@ function App() {
 
   const updateAccountBalance = async (userAddress) => {
     const accountInfo = await window.tronWeb.trx.getAccount(userAddress? userAddress: defaultAccount);
-    if (accountInfo.balance) {
+    if (accountInfo?.balance) {
       const accountBalance = new BigNumber(accountInfo.balance).div(trxPrecision);
       setDefaultAccountBalance(accountBalance);
     } else {
-      const accountBalance = new BigNumber(accountInfo.balance).div(trxPrecision);
-      setDefaultAccountBalance('0');
+      setDefaultAccountBalance('--');
     }
   };
 
