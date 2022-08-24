@@ -35,8 +35,10 @@ export class Signs {
     return this;
   }
   emit(event: string | number, ...args: any[]) {
-    const callbacks = this._events[event];
-    callbacks.forEach((fn: { apply: (arg0: null, arg1: any[]) => any; }) => fn.apply(null,args));
+    if(this._events[event]){
+      const callbacks = this._events[event];
+      callbacks.forEach((fn: { apply: (arg0: null, arg1: any[]) => any; }) => fn.apply(null,args));
+    }
     return this;
   }
 

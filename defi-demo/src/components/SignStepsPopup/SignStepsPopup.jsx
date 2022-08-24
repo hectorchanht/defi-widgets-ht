@@ -50,18 +50,17 @@ function SignStepsPopup({shouldShowPopup = false, stepInfoArray = [], onClosePop
         </div>
 
         <button
-          className={classNames('finish-button', {'disabled': !showFinishButton})}
-          onClick={onClosePopup}
+          className={classNames('retry-button', { 'disabled': !showRetryButton })}
+          onClick={showRetryButton ? onClickRetry : null}
         >
-          Close
-        </button>
-        <button
-          className={classNames('retry-button', {'disabled': !showRetryButton})}
-          onClick={onClickRetry}
-        >
-          <img src={retryIcon} alt='retry' />
+          <img src={retryIcon} alt="retry" />
           <span>Retry</span>
         </button>
+        {showFinishButton ? (
+          <button className={classNames('finish-button')} onClick={onClosePopup}>
+            Close
+          </button>
+        ) : null}
       </div>
     </div>
   );
