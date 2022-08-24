@@ -235,12 +235,11 @@
     border: none;
     opacity: 1;
     transition: opacity 0.2s ease 0s;
+    cursor: pointer;
 
     &.disabled {
-      opacity: 0;
-      
-      transform: translateX(100%);
-      transition: opacity 0s ease 0s;
+      background-color:#CCC;
+      cursor: default;
     }
   }
 

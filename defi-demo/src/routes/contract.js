@@ -4,7 +4,7 @@ import BigNumber from 'bignumber.js';
 import { TronWebConnector } from '@widgets/tronweb-connector';
 import { ContractInteract } from '@widgets/contract-interact';
 import Menu from '../components/menu';
-const { deploy, send, sendTrx, sendToken, call } = ContractInteract;
+const { trigger, sign, broadcast,send, call, deploy, sendTrx, sendToken} = ContractInteract;
 
 function App() {
   const [defaultAccount, setDefaultAccount] = useState(null);
@@ -12,7 +12,6 @@ function App() {
   const [accountsChangedMsg, setAccountsChangedMsg] = useState('');
 
   const trxPrecision = 1e6;
-  const DATA_LEN = 64;
 
   useEffect(() => {
     if (window.tronWeb?.defaultAddress) {
@@ -82,21 +81,76 @@ function App() {
   const deployContract = async () => {
     const res = await deploy(deployOptions);
     if (res.result) {
-      setAccountsChangedMsg(`Deploy success, the consaction ID is ${res.txid}`);
+      setAccountsChangedMsg(`Deploy success, the transaction ID is ${res.txid}`);
     } else {
       setAccountsChangedMsg(res.msg);
     }
   }
 
   const triggerContract = async () => {
-    const res = await send(
+    const res = await trigger(
       'TLmDopsmzmGDpQFyzRp1EDQJ588W7URXdH',
       "postMessage(string)",
       { parameters: [{ type: 'string', value: 'Hello' }] }
     );
 
     if (res.result) {
-      setAccountsChangedMsg(`Trigger success, the consaction ID is ${res.txid}`);
+      setAccountsChangedMsg(`Trigger success, the transaction ID is ${res?.transaction?.txID}`);
+    } else {
+      setAccountsChangedMsg(res.msg);
+    }
+  }
+
+  const signContract = async () => {
+    const { transaction, result } = await trigger(
+        'TLmDopsmzmGDpQFyzRp1EDQJ588W7URXdH',
+        "postMessage(string)",
+        { parameters: [{ type: 'string', value: 'Hello' }] }
+    );
+    if (!result.result) {
+      console.error("error:", result);
+      return;
+    }
+
+    const res = await sign(transaction);
+    if (res.txID) {
+      setAccountsChangedMsg(`Sign success, the transaction ID is ${res?.txID}`);
+    } else {
+      setAccountsChangedMsg(res.msg);
+    }
+  }
+
+
+  const broadcastContract = async () => {
+    const { transaction, result } = await trigger(
+        'TLmDopsmzmGDpQFyzRp1EDQJ588W7URXdH',
+        "postMessage(string)",
+        { parameters: [{ type: 'string', value: 'Hello' }] }
+    );
+    if (!result.result) {
+      console.error("error:", result);
+      return;
+    }
+
+    const signedTransaction = await sign(transaction);
+    const res = await broadcast(signedTransaction);
+
+    if (res.result) {
+      setAccountsChangedMsg(`Broadcast success, the transaction ID is ${res?.transaction?.txID}`);
+    } else {
+      setAccountsChangedMsg(res.msg);
+    }
+  }
+
+  const sendContract = async () => {
+    const res = await send(
+        'TLmDopsmzmGDpQFyzRp1EDQJ588W7URXdH',
+        "postMessage(string)",
+        { parameters: [{ type: 'string', value: 'Hello' }] }
+    );
+
+    if (res.result) {
+      setAccountsChangedMsg(`Trigger success, the transaction ID is ${res?.transaction?.txID}`);
     } else {
       setAccountsChangedMsg(res.msg);
     }
@@ -155,14 +209,19 @@ function App() {
             </div>
 
             <div className='items'>
-              <div className='item' onClick={() => deployContract()}>Deploy Contract</div>
-              <div className='item' onClick={() => triggerContract()}>Trigger Contract</div>
+              <div className='item' onClick={() => triggerContract()}>Trigger</div>
+              <div className='item' onClick={() => signContract()}>Sign</div>
+            </div>
+            <div className='items'>
+              <div className='item' onClick={() => broadcastContract()}>Broadcast</div>
+              <div className='item' onClick={() => sendContract()}>Send (include Trigger,Sign,Broadcast)</div>
             </div>
             <div className='items'>
               <div className='item' onClick={() => callContract()}>Call Contract</div>
-              <div className='item' onClick={() => sendTrxFunc()}>Send TRX</div>
+              <div className='item' onClick={() => deployContract()}>Deploy Contract</div>
             </div>
             <div className='items'>
+              <div className='item' onClick={() => sendTrxFunc()}>Send TRX</div>
               <div className='item' onClick={() => sendTokenFunc()}>Send 10 Token</div>
             </div>
           </>

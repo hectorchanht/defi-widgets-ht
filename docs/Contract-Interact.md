@@ -2,9 +2,9 @@
 
 
 ## Introduction
-Smart contract is a computerized transaction protocol that automatically implements its terms. Smart contract is the same as common contract, they all define the terms and rules related to the participants. Once the contract is started, it can runs in the way it is designed.
+Smart contract is a computerized transaction protocol that automatically implements its terms. Smart contract is the same as common contract, they all define the terms and rules related to the participants. Once the contract is started, it can run in the way it is designed.
 
-TRON smart contract support Solidity language in (Ethereum). Currently recommend Solidity language version is 0.5.12. Write a smart contract, then build the smart contract and deploy it to TRON network. When the smart contract is triggered, the corresponding function will be executed automatically.
+TRON smart contract support Solidity language in (Ethereum). Currently, recommend Solidity language version is 0.5.12. Write a smart contract, then build the smart contract and deploy it to TRON network. When the smart contract is triggered, the corresponding function will be executed automatically.
 
 Clients may have to connect their TronLink wallet with the Dapp before triggering contract function.
 
@@ -33,7 +33,7 @@ Clients may have to connect their TronLink wallet with the Dapp before triggerin
   import { ContractInteract } from "@widgets/contract-interact";
   ```
 
-  Contract function may require an Tron wallet address as target recipient.
+  Contract function may require a Tron wallet address as target recipient.
   ```
   const ACCOUNT = "TBHHa5Z6WQ1cRcgUhdvqdW4f728f2fiJmF";
   ```
@@ -51,9 +51,10 @@ Clients may have to connect their TronLink wallet with the Dapp before triggerin
 
   Check "~/packages/contract-interact/src/index.ts" or "~/packages/contract-interact/dist/index.d.ts" for code source.
 
-## Time to BUIDL!
+## Time to BUILD!
 
 ## trigger
+  <span id="trigger"></span>
   ### parameters: 
   ```
   (address: any, functionSelector: any, { options, parameters, tronweb }?: {
@@ -115,6 +116,7 @@ Clients may have to connect their TronLink wallet with the Dapp before triggerin
   ```
 
 ## sign
+  <span id="sign"></span>
   ### parameters: 
   ```
   (transaction: any, { tronweb }?: { tronweb?: {} | undefined; })
@@ -178,6 +180,7 @@ Clients may have to connect their TronLink wallet with the Dapp before triggerin
   ```
 
 ## broadcast
+  <span id="broadcast"></span>
   ### parameters: 
   ```
   (signedTransaction: any, { tronweb }?: { tronweb?: {} | undefined; })
@@ -316,6 +319,7 @@ Clients may have to connect their TronLink wallet with the Dapp before triggerin
   ```
 
 ## send
+  <span id="send"></span>
   ### parameters: 
   ```
   (address: any, functionSelector: any, { options, parameters, tronweb }?: {
@@ -371,6 +375,7 @@ Clients may have to connect their TronLink wallet with the Dapp before triggerin
 ```
 
 ## call
+  <span id="call"></span>
   ### parameters: 
   ```
   (address: string, _functionSelector: any, { tronweb, abi }?: {
@@ -396,6 +401,7 @@ Clients may have to connect their TronLink wallet with the Dapp before triggerin
   ```
 
 ## deploy
+  <span id="deploy"></span>
   ### parameters: 
   ```
   (options: any, address: string, { callbacks, tronweb }?: {
@@ -489,6 +495,7 @@ Clients may have to connect their TronLink wallet with the Dapp before triggerin
   ```
 
 ## sendTrx
+  <span id="sendtrx"></span>
   ### parameters: 
   ```
   (toAddress: string, amount: string | number, fromAddress: string, options: any, { callbacks, tronweb }?: {
@@ -541,6 +548,7 @@ Clients may have to connect their TronLink wallet with the Dapp before triggerin
   ```
 
 ## sendToken
+  <span id="sendtoken"></span>
   ### parameters: 
   ```
   (address: string, amount: string | number, tokenID: string | number, privateKey: string, { callbacks, tronweb }?: {
@@ -595,6 +603,7 @@ Clients may have to connect their TronLink wallet with the Dapp before triggerin
   ```
 
 ## ABI
+  <span id="abi"></span>
   ```
   const funcABIV2 = {
     "bytecode": "608060405234801561001057600080fd5b50d3801561001d57600080fd5b50d2801561002a57600080fd5b506103528061003a6000396000f3006080604052600436106100325763ffffffff60e060020a6000350416636630f88f8114610037578063ce6d41de1461011f575b600080fd5b34801561004357600080fd5b50d3801561005057600080fd5b50d2801561005d57600080fd5b506040805160206004803580820135601f81018490048402850184019095528484526100aa94369492936024939284019190819084018382808284375094975061014e9650505050505050565b6040805160208082528351818301528351919283929083019185019080838360005b838110156100e45781810151838201526020016100cc565b50505050905090810190601f1680156101115780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b34801561012b57600080fd5b50d3801561013857600080fd5b50d2801561014557600080fd5b506100aa6101f7565b805160609061016490600090602085019061028e565b506000805460408051602060026001851615610100026000190190941693909304601f810184900484028201840190925281815292918301828280156101eb5780601f106101c0576101008083540402835291602001916101eb565b820191906000526020600020905b8154815290600101906020018083116101ce57829003601f168201915b50505050509050919050565b60008054604080516020601f60026000196101006001881615020190951694909404938401819004810282018101909252828152606093909290918301828280156102835780601f1061025857610100808354040283529160200191610283565b820191906000526020600020905b81548152906001019060200180831161026657829003601f168201915b505050505090505b90565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f106102cf57805160ff19168380011785556102fc565b828001600101855582156102fc579182015b828111156102fc5782518255916020019190600101906102e1565b5061030892915061030c565b5090565b61028b91905b8082111561030857600081556001016103125600a165627a7a72305820d8016da0e588b4005857fe9a130eca1a7da6a671e252156ab06e485cc9058bb20029",
@@ -636,4 +645,4 @@ Clients may have to connect their TronLink wallet with the Dapp before triggerin
 
 reference:
 
-[mozilla](#https://developer.mozilla.org)
+[mozilla](https://developer.mozilla.org)
