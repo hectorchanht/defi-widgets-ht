@@ -60,7 +60,11 @@ function App() {
     setAdded(true);
     TronWebConnector.on('accountsChanged', res => {
       setDefaultAccount(res.data.address);
-      setAccountsChangedMsg(`Current account address is: ${res.data.address}`);
+      if (res.data.address) {
+        setAccountsChangedMsg(`Current account address is: ${res.data.address}`);
+      } else {
+        setAccountsChangedMsg(`Please log in to TronLink first`);
+      }
     })
 
     TronWebConnector.on('chainChanged', res => {
@@ -75,6 +79,12 @@ function App() {
 
     TronWebConnector.on('connectWeb', res => {
       setAccountsChangedMsg(`connect website name: ${res.data.websiteName}`);
+    })
+
+    TronWebConnector.on('setAccount', res => {
+      if (!res.data.address) {
+        setAccountsChangedMsg(`Please log in to TronLink first`);
+      }
     })
   };
 
@@ -93,7 +103,7 @@ function App() {
               <div className='item' onClick={() => addListener()} >addListeners</div>
               {added && <div className="desc">{'added!'}</div>}
             </div>
-            <div className='desc'>Such as accountsChanged, setAccount, setNode, disconnectWeb, connectWeb</div>
+            <div className='desc'>Such as accountsChanged, setAccount, setNode, disconnectWeb, connectWeb, setAccount</div>
           </>
           :
           <div className='items'>
