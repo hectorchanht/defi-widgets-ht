@@ -7,7 +7,7 @@ function Menu() {
       <Link to="/connector">Connector</Link>
       <Link to="/contract">Contract-Interact</Link>
       <Link to="/transaction">Transaction-Confirm</Link>
-      <Link to="/tokenlist">Token-List</Link>
+      {/* <Link to="/tokenlist">Token-List</Link> */}
       <Link to="/signsteps">Sign-Steps</Link>
     </section>
   )
