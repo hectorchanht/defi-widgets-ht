@@ -86,19 +86,32 @@ Developer can listen to the TronLink events using the `on` method
 
 ### Example
 ```
-TronwebConnector.on('accountsChanged', res => {
-  console.log('TronLink account changed')
+TronWebConnector.on('accountsChanged', res => {
+  setDefaultAccount(res.data.address);
+  if (res.data.address) {
+    console.log(`Current account address is: ${res.data.address}`);
+  } else {
+    console.log(`Please log in to TronLink first`);
+  }
 })
 
 TronWebConnector.on('chainChanged', res => {
-  console.log(`Current account fullnode is ${res.data.node.fullNode}`);
+  console.log(`Current account fullNode is: ${res.data.node.fullNode}`);
+  updateAccountBalance();
 })
 
 TronWebConnector.on('disconnectWeb', res => {
-  console.log(`User rejects the authorization request on ${res.data.websiteName}`);
+  console.log(`disconnect website name: ${res.data.websiteName}`);
+  resetDefaultAccount();
 })
 
 TronWebConnector.on('connectWeb', res => {
-  console.log(`User accepts the authorization request on ${res.data.websiteName}`);
+  console.log(`connect website name: ${res.data.websiteName}`);
+})
+
+TronWebConnector.on('setAccount', res => {
+  if (!res.data.address) {
+    console.log(`Please log in to TronLink first`);
+  }
 })
 ```
