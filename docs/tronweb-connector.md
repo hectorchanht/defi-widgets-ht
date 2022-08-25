@@ -40,8 +40,7 @@ Developer can connect TronLink wallet and request user authorization to dapp usi
 | Error code | Description |
 | ----------- | ----------- |
 | 4001 | User refuse to authorize |
-| 4002 | TronLink not installed |
-| 4003 | Unknown error |
+| 200 | TronLink installed |
 
 ### Example
 
