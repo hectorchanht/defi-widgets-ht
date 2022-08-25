@@ -71,7 +71,7 @@ export const addNewTransactionToList = (
   }
 };
 
-export const updateTransactionInList = (record: any, tronweb: any = null) => {
+const updateTransactionInList = (record: any, tronweb: any = null) => {
   const { tx, status } = record;
   const tronWeb = tronweb || (window as any).tronWeb;
   let data =
@@ -102,7 +102,7 @@ export const updateTransactionInList = (record: any, tronweb: any = null) => {
   );
 };
 
-export const logTransaction = async (
+const logTransaction = async (
   item: {
     checkCnt?: any;
     tx?: any;
@@ -175,7 +175,7 @@ export const logTransaction = async (
   );
 };
 
-export const getDescription = async (
+const getDescription = async (
   type: number,
   item: any,
   text: string,
@@ -267,7 +267,7 @@ export const getDescription = async (
   return notifyDom;
 };
 
-export const getTransactionInfo = (txid: string, tronweb = null) => {
+const getTransactionInfo = (txid: string, tronweb = null) => {
   const tronWeb = tronweb || (window as any).tronWeb;
   return new Promise((resolve, reject) => {
     tronWeb.trx.getConfirmedTransaction(txid, (e: any, r: unknown) => {
@@ -280,7 +280,7 @@ export const getTransactionInfo = (txid: string, tronweb = null) => {
   });
 };
 
-export const checkPendingTransactions = (tronweb = null) => {
+const checkPendingTransactions = (tronweb = null) => {
   const tronWeb = tronweb || (window as any).tronWeb;
   let data =
     window.localStorage.getItem(
