@@ -109,15 +109,15 @@ function App() {
         }
         <br />
 
-        <ContractExecutionFlowModal toggle={isModalVisible}>
-          <Steps direction="vertical" current={sendTrxStep}>
-            <Step title="Connection" description="Connect the dapp with your wallet" />
-            <Step title="Initiation" description="Initiate the contract function by pressing 'Send TRX'" />
-            <Step title="Signing" description="Sign the function that you would like to execute" />
-            <Step title="Broadcast" description="Wait for the signed transaction being broadcast to all nodes" />
-            {/* <Step title="Synchronization" description="The transaction is getting confirmed on chain, Congrats" /> */}
-          </Steps>
-        </ContractExecutionFlowModal>
+        {/*<ContractExecutionFlowModal toggle={isModalVisible}>*/}
+        {/*  <Steps direction="vertical" current={sendTrxStep}>*/}
+        {/*    <Step title="Connection" description="Connect the dapp with your wallet" />*/}
+        {/*    <Step title="Initiation" description="Initiate the contract function by pressing 'Send TRX'" />*/}
+        {/*    <Step title="Signing" description="Sign the function that you would like to execute" />*/}
+        {/*    <Step title="Broadcast" description="Wait for the signed transaction being broadcast to all nodes" />*/}
+        {/*    /!* <Step title="Synchronization" description="The transaction is getting confirmed on chain, Congrats" /> *!/*/}
+        {/*  </Steps>*/}
+        {/*</ContractExecutionFlowModal>*/}
       </section>
     </div>
   );
