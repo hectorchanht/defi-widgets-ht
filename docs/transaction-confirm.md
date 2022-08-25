@@ -62,12 +62,12 @@ Developer can save a new transaction to the pending transaction list in the brow
 
 ### Request Parameters
 
-| Argument | Description | Type |
-| ----------- | ----------- | ----------- | 
-| tx | The transaction object returned from tronweb | object |
-| customObj | Custom data to be saved with the transaction in the pending transaciton list | object |
-| saveAmount | Maximum | object |
-| tronweb | Tronweb instance | object |
+| Argument | Description | Type   |
+| ----------- | ----------- |--------| 
+| tx | The transaction object returned from tronweb | string |
+| customObj | Custom data to be saved with the transaction in the pending transaciton list | any    |
+| saveAmount | Maximum | number |
+| tronweb | Tronweb instance | any    |
 
 ### Example
 
@@ -77,7 +77,7 @@ const tx = await sendTrx(
   1000000
 );
 
-addNewTransactionToList(tx, {title: 'Send 1 TRX to somewhere'}, 10);
+addNewTransactionToList(tx.txid, {title: 'Send 1 TRX to somewhere'}, 10);
 ```
 
 # Update an existing transaction in the pending transaction list
