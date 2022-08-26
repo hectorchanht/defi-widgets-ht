@@ -35,7 +35,7 @@ export class Connector {
     return error;
   };
 
-  handleTronWallet = async (tron: any) => {
+  handleTronWallet = async (tron: any, pop: boolean) => {
     if (!tron) {
       return this.errorMessage(`error: tronlink not provided`, 4002);
     }
@@ -50,19 +50,21 @@ export class Connector {
       const tronWeb = tronLink.tronWeb;
       return tronWeb;
     } else {
-      const res = await tronLink.request({ method: 'tron_requestAccounts' });
-      if (res.code === 200) {
-        const tronWeb = tronLink.tronWeb;
-        return tronWeb;
-      }
-      if (res.code === 4001) {
-        const error = this.errorMessage(`error: user refuse to authorize`, 4001);
-        return error;
+      if (pop) {
+        const res = await tronLink.request({ method: 'tron_requestAccounts' });
+        if (res.code === 200) {
+          const tronWeb = tronLink.tronWeb;
+          return tronWeb;
+        }
+        if (res.code === 4001) {
+          const error = this.errorMessage(`error: user refuse to authorize`, 4001);
+          return error;
+        }
       }
     }
   };
 
-  activate = async () => {
+  activate = async (pop = true) => {
     try {
       const self = this;
       const tronlinkPromise = new Promise(reslove => {
@@ -108,7 +110,7 @@ export class Connector {
       });
 
       const tron = Promise.race([tronlinkPromise, appPromise]).then(res => {
-        return self.handleTronWallet(res);
+        return self.handleTronWallet(res, pop);
       });
 
       this.on('accountsChanged', this.accountsChangedListener);
