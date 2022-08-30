@@ -60,6 +60,8 @@ export class Connector {
           const error = this.errorMessage(`error: user refuse to authorize`, 4001);
           return error;
         }
+      } else {
+        return this.errorMessage(`error: user not log in`, 4004);
       }
     }
   };

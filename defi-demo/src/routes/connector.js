@@ -17,13 +17,23 @@ function App() {
     updateAccountBalance(userAddress);
   };
 
+  const checkLoginStatus = async () => {
+    const tronwebRes = await TronWebConnector.activate(false); // init tronweb without login
+    console.log(tronwebRes);
+    if (tronwebRes) {
+      initUserInfo(tronwebRes.defaultAddress.base58);
+    } else {
+      resetDefaultAccount();
+    }
+  }
+
   useEffect(() => {
     if (window.tronWeb?.defaultAddress) {
       initUserInfo(window.tronWeb.defaultAddress.base58);
     }
     setAccountsChangedMsg('');
     setLoading(false);
-    TronWebConnector.activate(false); // init tronweb without login
+    checkLoginStatus();
     addListener();
   }, []);
 
@@ -57,21 +67,14 @@ function App() {
   };
 
   const addListener = () => {
-    TronWebConnector.on('accountsChanged', res => {
+    TronWebConnector.on('accountsChanged', async res => {
       console.log(res);
-      setDefaultAccount(res.data.address);
-      if (res.data.address) {
-        setAccountsChangedMsg(`Current account address is: ${res.data.address}`);
-        updateAccountBalance();
-      } else {
-        setAccountsChangedMsg(`Please log in to TronLink first`);
-      }
+      checkLoginStatus();
     })
 
     TronWebConnector.on('chainChanged', res => {
       console.log(res);
       setAccountsChangedMsg(`Current account fullNode is: ${res.data.node.fullNode}`);
-      updateAccountBalance();
     })
 
     TronWebConnector.on('disconnectWeb', res => {
@@ -83,16 +86,14 @@ function App() {
     TronWebConnector.on('connectWeb', res => {
       console.log(res);
       setAccountsChangedMsg(`connect website name: ${res.data.websiteName}`);
-      updateAccountBalance();
     })
 
-    TronWebConnector.on('setAccount', res => {
-      console.log(res);
-      if (!res.data.address) {
-        setAccountsChangedMsg(`Please log in to TronLink first`);
-        updateAccountBalance();
-      }
-    })
+    // TronWebConnector.on('setAccount', res => {
+    //   console.log(res);
+    //   if (!res.data.address) {
+    //     setAccountsChangedMsg(`Please log in to TronLink first`);
+    //   }
+    // })
   };
 
   return (

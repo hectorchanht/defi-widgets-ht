@@ -35,11 +35,14 @@ Developer can connect TronLink wallet and request user authorization to dapp usi
 | TronLink installed and the user did not provide authorization before. <br />Authorization box will be shown and the user REJECTS the authorization request | Error response object |
 | TronLink installed and user provided authorization before | TronLink instance |
 
-### Errors
+### Status
 
-| Error code | Description |
+| Status code | Description |
 | ----------- | ----------- |
 | 4001 | User refuse to authorize |
+| 4002 | TronLink not installed |
+| 4003 | Unknown error |
+| 4004 | User not log in |
 | 200 | TronLink installed |
 
 ### Example
