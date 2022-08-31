@@ -26,10 +26,6 @@ export class Connector {
     return result;
   };
 
-  private setAccountListener = (result: any) => {
-    return result;
-  }
-
   private errorMessage = (msg: string, errorCode: number) => {
     const error: ResultType = { success: false, msg, errorCode };
     return error;
@@ -119,7 +115,6 @@ export class Connector {
       this.on('chainChanged', this.chainChangedListener);
       this.on('disconnectWeb', this.disconnectListener);
       this.on('connectWeb', this.connectListener);
-      this.on('setAccount', this.setAccountListener);
       return tron;
     } catch (e) {
       return this.errorMessage(`error: ${e}`, 4003);

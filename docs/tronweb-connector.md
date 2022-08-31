@@ -110,10 +110,4 @@ TronWebConnector.on('disconnectWeb', res => {
 TronWebConnector.on('connectWeb', res => {
   console.log(`connect website name: ${res.data.websiteName}`);
 })
-
-TronWebConnector.on('setAccount', res => {
-  if (!res.data.address) {
-    console.log(`Please log in to TronLink first`);
-  }
-})
 ```

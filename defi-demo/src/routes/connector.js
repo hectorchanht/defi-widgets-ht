@@ -87,13 +87,6 @@ function App() {
       console.log(res);
       setAccountsChangedMsg(`connect website name: ${res.data.websiteName}`);
     })
-
-    // TronWebConnector.on('setAccount', res => {
-    //   console.log(res);
-    //   if (!res.data.address) {
-    //     setAccountsChangedMsg(`Please log in to TronLink first`);
-    //   }
-    // })
   };
 
   return (
@@ -107,7 +100,7 @@ function App() {
               <div><span>Current account balance: </span>{defaultAccountBalance.toString()} TRX</div>
             </div>
 
-            <div className='desc'>Such as accountsChanged, setAccount, setNode, disconnectWeb, connectWeb, setAccount</div>
+            <div className='desc'>Such as accountsChanged, setNode, disconnectWeb, connectWeb</div>
           </>
           :
           <div className='items'>
