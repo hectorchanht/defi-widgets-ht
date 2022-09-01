@@ -22,7 +22,9 @@ export class Contract {
   trigger = async (
     address: any,
     functionSelector: any,
-    { options = {}, parameters = [], tronweb = {} } = {}
+    parameters = [],
+    options = {},
+    { tronweb = {} } = {}
   ) => {
     try {
       const tronWeb = this.getTronWeb(tronweb);
@@ -70,12 +72,12 @@ export class Contract {
   send = async (
     address: any,
     functionSelector: any,
-    { parameters = [], options = {}, callbacks = () => {}, tronweb = {} } = {}
+    parameters = [],
+    options = {},
+    { callbacks = () => {}, tronweb = {} } = {}
   ) => {
     try {
-      const transaction = await this.trigger(address, functionSelector, {
-        options,
-        parameters,
+      const transaction = await this.trigger(address, functionSelector, parameters, options, {
         tronweb,
       });
 
@@ -111,6 +113,28 @@ export class Contract {
       return { result };
     } catch (error) {
       return this.errorMessage(`error: ${error}`);
+    }
+  };
+
+  view = async (
+    address: string,
+    _functionSelector: any,
+    parameters = [],
+    { tronweb = {} } = {}
+  ) => {
+    try {
+      const tronWeb = this.getTronWeb(tronweb);
+      if (!tronWeb.defaultAddress) return;
+      const result = await tronWeb.transactionBuilder.triggerSmartContract(
+        address,
+        _functionSelector,
+        { _isConstant: true },
+        parameters
+      );
+      return result && result.result ? result.constant_result : [];
+    } catch (error) {
+      this.errorMessage(`error: ${error}`);
+      return [];
     }
   };
 

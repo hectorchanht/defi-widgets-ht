@@ -4,7 +4,7 @@ import BigNumber from 'bignumber.js';
 import { TronWebConnector } from '@widgets/tronweb-connector';
 import { ContractInteract } from '@widgets/contract-interact';
 import Menu from '../components/menu';
-const { trigger, sign, broadcast,send, call, deploy, sendTrx, sendToken} = ContractInteract;
+const { trigger, sign, broadcast,send, call, view, deploy, sendTrx, sendToken} = ContractInteract;
 
 function App() {
   const [defaultAccount, setDefaultAccount] = useState(null);
@@ -146,7 +146,7 @@ function App() {
     const res = await send(
         'TLmDopsmzmGDpQFyzRp1EDQJ588W7URXdH',
         "postMessage(string)",
-        { parameters: [{ type: 'string', value: 'Hello' }] }
+        [{ type: 'string', value: 'Hello' }]
     );
 
     if (res.result) {
@@ -167,6 +167,21 @@ function App() {
       setAccountsChangedMsg(`Call success, the result is: ${res.result}`);
     } else {
       setAccountsChangedMsg(res.msg);
+    }
+  }
+
+  const viewContract = async () => {
+    const res = await view(
+      'TBagxx57zx73VJJ61o12VfxzQ2EG3KHYJp',
+      "totalSupply()",
+      []
+    );
+
+    if (res.length) {
+      let totalSupply = new BigNumber(res[0].slice(0, 64), 16).div(1e18);
+      setAccountsChangedMsg(`View success, BTT(TRC20) totalSupply is: ${totalSupply.toString()}`);
+    } else {
+      setAccountsChangedMsg('View failed');
     }
   }
 
@@ -218,6 +233,7 @@ function App() {
             </div>
             <div className='items'>
               <div className='item' onClick={() => callContract()}>Call Contract</div>
+              <div className='item' onClick={() => viewContract()}>View Contract</div>
               <div className='item' onClick={() => deployContract()}>Deploy Contract</div>
             </div>
             <div className='items'>
