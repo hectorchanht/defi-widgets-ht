@@ -4,7 +4,7 @@ import BigNumber from 'bignumber.js';
 import { TronWebConnector } from '@widgets/tronweb-connector';
 import { ContractInteract } from '@widgets/contract-interact';
 import Menu from '../components/menu';
-const { trigger, sign, broadcast,send, call, view, deploy, sendTrx, sendToken} = ContractInteract;
+const { trigger, sign, broadcast, send, call, view, deploy, sendTrx, sendToken } = ContractInteract;
 
 function App() {
   const [defaultAccount, setDefaultAccount] = useState(null);
