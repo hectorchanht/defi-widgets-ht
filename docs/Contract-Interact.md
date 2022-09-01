@@ -7,6 +7,20 @@ contract-interact can help dapp developers trigger contract transactions, query 
 - deploy contract
 - send trx or other token
 
+# Get Started
+
+### Installation
+
+- `npm i`
+
+### Run
+
+- `npm run start`
+
+### Build
+
+- `npm run build`
+
 ## Available functions
   1. [trigger](#trigger)
   2. [sign](#sign)
@@ -72,7 +86,8 @@ contract-interact can help dapp developers trigger contract transactions, query 
 ```
 const response = await ContractInteract.trigger(
   "TGjgvdTWWrybVLaVeFqSyVqJQWjxqRYbaK", // Decentralized USD (USDD)
-  "name()"
+  "name()",
+  []
 )
 
 // convert response.constant_result from Hex to ASCII to retrieve string value
@@ -338,7 +353,7 @@ const response = await ContractInteract.broadcast(signedTransaction);
 const response = await ContractInteract.send(
   ACCOUNT,
   "postMessage(string)",
-  { parameters: [{ type: "string", value: "Hello" }] }
+  [{ type: "string", value: "Hello" }]
 );
 ```
 
