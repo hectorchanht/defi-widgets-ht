@@ -20,33 +20,23 @@ interface CustomObjType {
 
 const modalContent = (
   stepInfo = { step: 0, txId: '' },
-  customObj: CustomObjType = {}
+  customObj: CustomObjType = {},
+  {
+    intl = {
+      transaction: 'Transaction',
+      waiting: 'Waiting for your confirmation',
+      confirm: 'Please confirm in your wallet',
+      submited: 'Transaction Submitted',
+      tronscan: 'View on TRONSCAN',
+      cancelled: 'Transaction Cancelled',
+    },
+    tronscanLink = 'https://nile.tronscan.io/#'
+  } = {}
 ) => {
   // const { stepInfo, customObj } = this.props;
-  const tronscanLink = 'https://nile.tronscan.io/#';
   const { step, txId } = stepInfo;
 
   if (!step) return;
-
-  const intlZh = {
-    transaction: '交易',
-    waiting: '等待您的确认',
-    confirm: '请在您的钱包中确认',
-    submited: '交易已提交',
-    tronscan: '在 TRONSCAN 上查看',
-    cancelled: '交易已取消',
-  };
-
-  const intlEn = {
-    transaction: 'Transaction',
-    waiting: 'Waiting for your confirmation',
-    confirm: 'Please confirm in your wallet',
-    submited: 'Transaction Submitted',
-    tronscan: 'View on TRONSCAN',
-    cancelled: 'Transaction Cancelled',
-  };
-
-  const intl = customObj?.lang === 'zh' ? intlZh : intlEn;
 
   return (
     <div className={styles.transModalContainer}>

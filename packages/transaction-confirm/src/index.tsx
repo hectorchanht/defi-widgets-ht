@@ -115,7 +115,7 @@ const logTransaction = async (
       pending: 'Pending',
       confirmed: ' Confirmed',
       failed: 'Failed',
-    }
+    },
   } = {}
 ) => {
   item.status = status;
@@ -176,6 +176,11 @@ const getDescription = async (
       pending: 'Pending',
       confirmed: 'Transaction Broadcasted',
       failed: 'Transaction Failed'
+    },
+    intl = {
+      tronscan: 'View on TRONSCAN',
+      errTip:
+        'Failure may be caused by the following situations, please check if:<br />①your Energy or bandwidth is insufficient; please top up<br />②your slippage is too low; please reset<br />③your current network is congested; please try again later<br />④your system time is incorrect; please check and try again',
     }
   } = {}
 ) => {
@@ -197,11 +202,6 @@ const getDescription = async (
       statusText = statusTexts.failed;
       break;
   }
-  const intl = {
-    tronscan: 'View on TRONSCAN',
-    errTip:
-      'Failure may be caused by the following situations, please check if:<br />①your Energy or bandwidth is insufficient; please top up<br />②your slippage is too low; please reset<br />③your current network is congested; please try again later<br />④your system time is incorrect; please check and try again',
-  };
 
   const notifyDom = (
     <div className={styles.notify}>
@@ -271,8 +271,8 @@ const getTransactionInfo = (txid: string, tronweb = null) => {
   });
 };
 
-const checkPendingTransactions = (tronweb = null) => {
-  const tronWeb = tronweb || (window as any).tronWeb;
+const checkPendingTransactions = (intlText: any = null) => {
+  const tronWeb = (window as any).tronWeb;
   let data =
     window.localStorage.getItem(
       `${tronWeb.defaultAddress.base58}_transaction`
@@ -284,20 +284,20 @@ const checkPendingTransactions = (tronweb = null) => {
       const { tx, status, showPending } = item;
       if (Number(status) === 1) {
         if (showPending) {
-          logTransaction(item, 1);
+          logTransaction(item, 1, { intlText });
         }
         item.checkCnt++;
         getTransactionInfo(tx.txid)
           .then((r: any) => {
             if (r && r.ret && r.ret[0] && r.ret[0].contractRet) {
               if (r.ret[0].contractRet === 'SUCCESS') {
-                logTransaction(item, 2);
+                logTransaction(item, 2, { intlText });
               } else {
-                logTransaction(item, 3);
+                logTransaction(item, 3, { intlText });
               }
             } else {
               if (item.checkCnt != undefined && item.checkCnt >= 30) {
-                logTransaction(item, 3);
+                logTransaction(item, 3, { intlText });
               }
             }
           })
@@ -310,12 +310,12 @@ const checkPendingTransactions = (tronweb = null) => {
   );
 };
 
-export const startPendingTransactionCheck = (milliseconds: number = 3000) => {
+export const startPendingTransactionCheck = (milliseconds: number = 3000, intlText: any = null) => {
   let interval = null;
   if (!interval) {
     interval = setInterval(async () => {
       try {
-        checkPendingTransactions();
+        checkPendingTransactions(intlText);
       } catch (err) {
         console.log('interval error:' + err);
       }
