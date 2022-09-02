@@ -43,11 +43,11 @@ function App() {
 
     if (res?.result) {
       const tx = res
-      openTransModal({ step: 2, txId: tx.txid }, { title: 'Send TRX success' });
+      openTransModal({ step: 2, txId: tx.txid, customObj: {title: 'Send TRX success'}});
       addNewTransactionToList(tx, { title: 'Send 1 TRX to somewhere' });
       startPendingTransactionCheck(3000);
     } else {
-      openTransModal({ step: 3 }, { title: 'Send TRX failed' });
+      openTransModal({ step: 3, txId: '', customObj: {title: 'Send TRX failed'}});
     }
   }
 
