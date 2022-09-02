@@ -12,6 +12,10 @@ interface CustomObjType {
   submitted?: string;
   view_on_tronscan?: string;
   cancelled?: string;
+
+  title2?: string;
+  title3?: string;
+  title4?: string;
 }
 
 export const openTransModal = async (

@@ -11,25 +11,30 @@ import styles from '../assets/css/transaction.scss';
 interface CustomObjType {
   title?: string;
   wait_confirm?: string;
-  lang?: string;
   confirm_wallet?: string;
   submitted?: string;
   view_on_tronscan?: string;
   cancelled?: string;
+
+  title2?: string;
+  title3?: string;
+  title4?: string;
 }
 
 const modalContent = (
   stepInfo = { step: 0, txId: '' },
-  customObj: CustomObjType = {},
+  customObj: CustomObjType = {
+    title: 'Transaction',
+    wait_confirm: 'Waiting for your confirmation',
+    confirm_wallet: 'Please confirm in your wallet',
+    submitted: 'Transaction Submitted',
+    view_on_tronscan: 'View on TRONSCAN',
+    cancelled: 'Transaction Cancelled',
+    title2: 'Transaction',
+    title3: 'Transaction',
+    title4: 'Transaction'
+  },
   {
-    intl = {
-      transaction: 'Transaction',
-      waiting: 'Waiting for your confirmation',
-      confirm: 'Please confirm in your wallet',
-      submited: 'Transaction Submitted',
-      tronscan: 'View on TRONSCAN',
-      cancelled: 'Transaction Cancelled',
-    },
     tronscanLink = 'https://nile.tronscan.io/#'
   } = {}
 ) => {
@@ -43,11 +48,11 @@ const modalContent = (
       <div className={styles.transModalMask}></div>
       <div className={styles.transContent}>
         <div className={styles.transBody}>
-          <div className={styles.transTitle}>
-            {customObj?.title ? customObj?.title : intl.transaction}
-          </div>
           {step == 1 ? (
             <React.Fragment>
+              <div className={styles.transTitle}>
+                {customObj.title4 || customObj.title}
+              </div>
               <div className={styles.loading}>
                 <Loading3QuartersOutlined
                   style={{
@@ -58,23 +63,24 @@ const modalContent = (
                 />
               </div>
               <div className="trans-modal-status trans-modal-wait-confirm">
-                {customObj.wait_confirm ? customObj.wait_confirm : intl.waiting}
+                {customObj.wait_confirm}
               </div>
               <div className="trans-modal-tips trans-modal-wait-confirm-tips">
-                {customObj.confirm_wallet
-                  ? customObj.confirm_wallet
-                  : intl.confirm}
+                {customObj.confirm_wallet}
               </div>
             </React.Fragment>
           ) : step == 2 ? (
             <React.Fragment>
+              <div className={styles.transTitle}>
+                {customObj.title2}
+              </div>
               <div className={styles.modalIcon}>
                 <CheckCircleOutlined
                   style={{ fontSize: '80px', color: '#1bc378' }}
                 ></CheckCircleOutlined>
               </div>
               <div className="trans-modal-status trans-modal-submit">
-                {customObj.submitted ? customObj.submitted : intl.submited}
+                {customObj.submitted}
               </div>
               {txId && (
                 <div className="trans-modal-tips trans-modal-submit-tips">
@@ -84,22 +90,23 @@ const modalContent = (
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    {customObj.view_on_tronscan
-                      ? customObj.view_on_tronscan
-                      : intl.tronscan}
+                    {customObj.view_on_tronscan}
                   </a>
                 </div>
               )}
             </React.Fragment>
           ) : step == 3 ? (
             <React.Fragment>
+              <div className={styles.transTitle}>
+                {customObj.title3}
+              </div>
               <div className={styles.modalIcon}>
                 <CloseCircleOutlined
                   style={{ fontSize: '80px', color: '#d84b79' }}
                 ></CloseCircleOutlined>
               </div>
               <div className="trans-modal-status trans-modal-cancel">
-                {customObj.cancelled ? customObj.cancelled : intl.cancelled}
+                {customObj.cancelled}
               </div>
             </React.Fragment>
           ) : (
