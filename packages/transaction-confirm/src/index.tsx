@@ -8,7 +8,6 @@ import styles from './assets/css/transaction.scss';
 interface CustomObjType {
   title?: string;
   wait_confirm?: string;
-  lang?: string;
   confirm_wallet?: string;
   submitted?: string;
   view_on_tronscan?: string;
@@ -85,11 +84,11 @@ const updateTransactionInList = (record: any, tronweb: any = null) => {
       pos = index;
     }
   });
-  
+
   if (pos === 'true') {
     return;
   }
-  
+
   dataArr[pos] = record;
 
   if (status !== 1) {
@@ -111,7 +110,13 @@ const logTransaction = async (
     customObj?: any;
   },
   status: number,
-  lang: string = 'en'
+  {
+    intlText = {
+      pending: 'Pending',
+      confirmed: ' Confirmed',
+      failed: 'Failed',
+    }
+  } = {}
 ) => {
   item.status = status;
   if (status === 1) {
@@ -119,23 +124,9 @@ const logTransaction = async (
   }
   const { customObj } = item;
 
-  const intlZh = {
-    pending: '待确认',
-    confirmed: '已确认',
-    failed: '失败',
-  };
-
-  const intlEn = {
-    pending:'Pending',
-    confirmed: ' Confirmed',
-    failed: 'Failed', 
-  };
-
-  const intl = lang === 'zh' ? intlZh : intlEn;
-
-  let description = intl.pending;
-  if (status === 2) description = intl.confirmed;
-  if (status === 3) description = intl.failed;
+  let description = intlText?.pending;
+  if (status === 2) description = intlText?.confirmed;
+  if (status === 3) description = intlText?.failed;
 
   const notifyContent = (
     <div className={classNames(styles.notification, 'notification')}>
@@ -179,38 +170,38 @@ const getDescription = async (
   type: number,
   item: any,
   text: string,
+  tronscanLink: string = 'https://nile.tronscan.io/#',
+  {
+    statusTexts = {
+      pending: 'Pending',
+      confirmed: 'Transaction Broadcasted',
+      failed: 'Transaction Failed'
+    }
+  } = {}
 ) => {
-  const tronscanLink = 'https://nile.tronscan.io/#';
-  // const tronscanLink = 'https://nile.tronscan.org//#';
-  const { tx, lang, view_on_tronscan } = item;
+  const { tx, view_on_tronscan } = item;
   const { txid } = tx;
   let className = '';
   let statusText = '';
   switch (type) {
     case 1:
       className = 'trans-pending';
-      statusText = lang === 'zh' ? '待确认' : 'Pending';
+      statusText = statusTexts.pending;
       break;
     case 2:
       className = 'trans-confirmed';
-      statusText = lang === 'zh' ? '交易已经广播' : 'Transaction Broadcasted';
+      statusText = statusTexts.confirmed;
       break;
     case 3:
       className = 'trans-failed';
-      statusText = lang === 'zh' ? '交易失败' : 'Transaction Failed';
+      statusText = statusTexts.failed;
       break;
   }
-  const intlZh = {
-    tronscan: '在 TRONSCAN 上查看',
-    errTip:
-      '失败原因可能是以下几种，请自查：<br /> ①能量或者带宽不足，需补充 <br /> ②滑点设置过低，需重新设置 <br /> ③当前网络过于拥堵，请稍后再试 <br /> ④系统时间不正确，请校验后再试',
-  };
-  const intlEn = {
+  const intl = {
     tronscan: 'View on TRONSCAN',
     errTip:
       'Failure may be caused by the following situations, please check if:<br />①your Energy or bandwidth is insufficient; please top up<br />②your slippage is too low; please reset<br />③your current network is congested; please try again later<br />④your system time is incorrect; please check and try again',
   };
-  const intl = lang === 'zh' ? intlZh : intlEn;
 
   const notifyDom = (
     <div className={styles.notify}>
