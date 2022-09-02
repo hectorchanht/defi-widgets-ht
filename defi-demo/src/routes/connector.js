@@ -35,6 +35,7 @@ function App() {
     setLoading(false);
     checkLoginStatus();
     addListener();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const resetDefaultAccount = () => {
