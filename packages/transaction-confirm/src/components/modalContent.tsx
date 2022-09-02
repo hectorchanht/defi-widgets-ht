@@ -8,38 +8,33 @@ import {
 import classNames from 'classnames';
 import styles from '../assets/css/transaction.scss';
 
-interface CustomObjType {
-  title?: string;
-  wait_confirm?: string;
-  confirm_wallet?: string;
-  submitted?: string;
-  view_on_tronscan?: string;
-  cancelled?: string;
+// interface CustomObjType {
+//   title?: string;
+//   wait_confirm?: string;
+//   confirm_wallet?: string;
+//   submitted?: string;
+//   view_on_tronscan?: string;
+//   cancelled?: string;
+// }
 
-  title2?: string;
-  title3?: string;
-  title4?: string;
-}
+const title = 'Transaction';
+const wait_confirm = 'Waiting for your confirmation';
+const confirm_wallet = 'Please confirm in your wallet';
+const submitted = 'Transaction Submitted';
+const view_on_tronscan = 'View on TRONSCAN';
+const cancelled = 'Transaction Cancelled';
 
 const modalContent = (
-  stepInfo = { step: 0, txId: '' },
-  customObj: CustomObjType = {
-    title: 'Transaction',
-    wait_confirm: 'Waiting for your confirmation',
-    confirm_wallet: 'Please confirm in your wallet',
-    submitted: 'Transaction Submitted',
-    view_on_tronscan: 'View on TRONSCAN',
-    cancelled: 'Transaction Cancelled',
-    title2: 'Transaction',
-    title3: 'Transaction',
-    title4: 'Transaction'
+  stepInfo: any = {
+    step: 0,
+    txId: '',
+    customObj: {}
   },
   {
     tronscanLink = 'https://nile.tronscan.io/#'
   } = {}
 ) => {
-  // const { stepInfo, customObj } = this.props;
-  const { step, txId } = stepInfo;
+  const { step, txId, customObj } = stepInfo;
 
   if (!step) return;
 
@@ -48,11 +43,11 @@ const modalContent = (
       <div className={styles.transModalMask}></div>
       <div className={styles.transContent}>
         <div className={styles.transBody}>
+          <div className={styles.transTitle}>
+            {customObj?.title || title}
+          </div>
           {step == 1 ? (
             <React.Fragment>
-              <div className={styles.transTitle}>
-                {customObj.title4 || customObj.title}
-              </div>
               <div className={styles.loading}>
                 <Loading3QuartersOutlined
                   style={{
@@ -63,24 +58,21 @@ const modalContent = (
                 />
               </div>
               <div className="trans-modal-status trans-modal-wait-confirm">
-                {customObj.wait_confirm}
+                {customObj?.wait_confirm || wait_confirm}
               </div>
               <div className="trans-modal-tips trans-modal-wait-confirm-tips">
-                {customObj.confirm_wallet}
+                {customObj?.confirm_wallet || confirm_wallet}
               </div>
             </React.Fragment>
           ) : step == 2 ? (
             <React.Fragment>
-              <div className={styles.transTitle}>
-                {customObj.title2}
-              </div>
               <div className={styles.modalIcon}>
                 <CheckCircleOutlined
                   style={{ fontSize: '80px', color: '#1bc378' }}
                 ></CheckCircleOutlined>
               </div>
               <div className="trans-modal-status trans-modal-submit">
-                {customObj.submitted}
+                {customObj?.submitted || submitted}
               </div>
               {txId && (
                 <div className="trans-modal-tips trans-modal-submit-tips">
@@ -90,23 +82,20 @@ const modalContent = (
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    {customObj.view_on_tronscan}
+                    {customObj?.view_on_tronscan || view_on_tronscan}
                   </a>
                 </div>
               )}
             </React.Fragment>
           ) : step == 3 ? (
             <React.Fragment>
-              <div className={styles.transTitle}>
-                {customObj.title3}
-              </div>
               <div className={styles.modalIcon}>
                 <CloseCircleOutlined
                   style={{ fontSize: '80px', color: '#d84b79' }}
                 ></CloseCircleOutlined>
               </div>
               <div className="trans-modal-status trans-modal-cancel">
-                {customObj.cancelled}
+                {customObj?.cancelled || cancelled}
               </div>
             </React.Fragment>
           ) : (

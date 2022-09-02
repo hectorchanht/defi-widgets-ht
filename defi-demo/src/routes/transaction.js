@@ -9,7 +9,7 @@ const { sendTrx } = ContractInteract;
 
 function App() {
   const [defaultAccount, setDefaultAccount] = useState('');
-  const [setSendTrxStep] = useState(0);
+  // const [sendTrxStep, setSendTrxStep] = useState(0);
   const [defaultAccountBalance, setDefaultAccountBalance] = useState('--');
 
   const trxPrecision = 1e6;
@@ -25,11 +25,11 @@ function App() {
     const accountInfo = await window.tronWeb.trx.getAccount(userAddress);
     const accountBalance = new BigNumber(accountInfo.balance).div(trxPrecision);
     setDefaultAccountBalance(accountBalance);
-    nextStep();
+    // nextStep();
   };
 
-  const nextStep = () => setSendTrxStep(s => s + 1);
-  const backStep = (step = 1) => setSendTrxStep(step); // todo: back step if fail
+  // const nextStep = () => setSendTrxStep(s => s + 1);
+  // const backStep = (step = 1) => setSendTrxStep(step); // todo: back step if fail
 
   const activate = async () => {
     const res = await TronWebConnector.activate();
@@ -40,7 +40,7 @@ function App() {
 
   const sendTrxFunc = async () => {
     openTransModal({ step: 1 });
-    nextStep();
+    // nextStep();
 
     const res = await sendTrx(
       'TBHHa5Z6WQ1cRcgUhdvqdW4f728f2fiJmF',
@@ -52,10 +52,10 @@ function App() {
       openTransModal({ step: 2, txId: tx.txid }, { title: 'Send TRX success' });
       addNewTransactionToList(tx, { title: 'Send 1 TRX to somewhere' });
       startPendingTransactionCheck(3000);
-      nextStep();
+      // nextStep();
     } else {
       openTransModal({ step: 3 }, { title: 'Send TRX failed' });
-      backStep();
+      // backStep();
     }
   }
 

@@ -5,33 +5,19 @@ import classNames from 'classnames';
 import ModalContent from './components/modalContent';
 import styles from './assets/css/transaction.scss';
 
-interface CustomObjType {
-  title?: string;
-  wait_confirm?: string;
-  confirm_wallet?: string;
-  submitted?: string;
-  view_on_tronscan?: string;
-  cancelled?: string;
-
-  title2?: string;
-  title3?: string;
-  title4?: string;
-}
-
 export const openTransModal = async (
-  stepInfo = { step: 0, txId: '' },
-  customObj: CustomObjType = {},
+  stepInfo = { step: 0, txId: '', customObj: {} },
 ) => {
   let container: any = document.querySelector('.wg-modal-root');
   if (!container) {
     container = document.createElement('div');
     container.classList.add('wg-modal-root');
 
-    const contentString: any = ModalContent(stepInfo, customObj)
+    const contentString: any = ModalContent(stepInfo);
     container.innerHTML = renderToString(contentString);
     document.body.appendChild(container);
   } else {
-    const contentString: any = ModalContent(stepInfo, customObj)
+    const contentString: any = ModalContent(stepInfo);
     container.innerHTML = renderToString(contentString);
   }
   container.style.display = 'block';
