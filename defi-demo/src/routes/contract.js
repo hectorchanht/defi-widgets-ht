@@ -87,61 +87,6 @@ function App() {
     }
   }
 
-  const triggerContract = async () => {
-    const res = await trigger(
-      'TLmDopsmzmGDpQFyzRp1EDQJ588W7URXdH',
-      "postMessage(string)",
-      { parameters: [{ type: 'string', value: 'Hello' }] }
-    );
-
-    if (res.result) {
-      setAccountsChangedMsg(`Trigger success, the transaction ID is ${res?.transaction?.txID}`);
-    } else {
-      setAccountsChangedMsg(res.msg);
-    }
-  }
-
-  const signContract = async () => {
-    const { transaction, result } = await trigger(
-        'TLmDopsmzmGDpQFyzRp1EDQJ588W7URXdH',
-        "postMessage(string)",
-        { parameters: [{ type: 'string', value: 'Hello' }] }
-    );
-    if (!result.result) {
-      console.error("error:", result);
-      return;
-    }
-
-    const res = await sign(transaction);
-    if (res.txID) {
-      setAccountsChangedMsg(`Sign success, the transaction ID is ${res?.txID}`);
-    } else {
-      setAccountsChangedMsg(res.msg);
-    }
-  }
-
-
-  const broadcastContract = async () => {
-    const { transaction, result } = await trigger(
-        'TLmDopsmzmGDpQFyzRp1EDQJ588W7URXdH',
-        "postMessage(string)",
-        { parameters: [{ type: 'string', value: 'Hello' }] }
-    );
-    if (!result.result) {
-      console.error("error:", result);
-      return;
-    }
-
-    const signedTransaction = await sign(transaction);
-    const res = await broadcast(signedTransaction);
-
-    if (res.result) {
-      setAccountsChangedMsg(`Broadcast success, the transaction ID is ${res?.transaction?.txID}`);
-    } else {
-      setAccountsChangedMsg(res.msg);
-    }
-  }
-
   const sendContract = async () => {
     const res = await send(
         'TLmDopsmzmGDpQFyzRp1EDQJ588W7URXdH',
@@ -224,15 +169,10 @@ function App() {
             </div>
 
             <div className='items'>
-              <div className='item' onClick={() => triggerContract()}>Trigger</div>
-              <div className='item' onClick={() => signContract()}>Sign</div>
-            </div>
-            <div className='items'>
-              <div className='item' onClick={() => broadcastContract()}>Broadcast</div>
               <div className='item' onClick={() => sendContract()}>Send (include Trigger,Sign,Broadcast)</div>
+              <div className='item' onClick={() => callContract()}>Call Contract</div>
             </div>
             <div className='items'>
-              <div className='item' onClick={() => callContract()}>Call Contract</div>
               <div className='item' onClick={() => viewContract()}>View Contract</div>
               <div className='item' onClick={() => deployContract()}>Deploy Contract</div>
             </div>
