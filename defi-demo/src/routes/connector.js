@@ -19,8 +19,8 @@ function App() {
 
   const checkLoginStatus = async () => {
     const tronwebRes = await TronWebConnector.activate(false); // init tronweb without login
-    console.log(tronwebRes);
-    if (tronwebRes) {
+    // console.log(tronwebRes);
+    if (tronwebRes?.defaultAddress?.base58) {
       initUserInfo(tronwebRes.defaultAddress.base58);
     } else {
       resetDefaultAccount();
@@ -76,6 +76,7 @@ function App() {
     TronWebConnector.on('chainChanged', res => {
       console.log(res);
       setAccountsChangedMsg(`Current account fullNode is: ${res.data.node.fullNode}`);
+      checkLoginStatus();
     })
 
     TronWebConnector.on('disconnectWeb', res => {
