@@ -88,6 +88,7 @@ function App() {
     TronWebConnector.on('connectWeb', res => {
       console.log(res);
       setAccountsChangedMsg(`connect website name: ${res.data.websiteName}`);
+      checkLoginStatus();
     })
   };
 
