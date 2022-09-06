@@ -102,13 +102,13 @@ export class Contract {
     try {
       const tronWeb = this.getTronWeb(tronweb);
       if (!tronWeb.defaultAddress) return;
-      let contractInstacne;
+      let contractInstance;
       if (abi.length > 0) {
-        contractInstacne = await tronWeb.contract(abi, address);
+        contractInstance = await tronWeb.contract(abi, address);
       } else {
-        contractInstacne = await tronWeb.contract().at(address);
+        contractInstance = await tronWeb.contract().at(address);
       }
-      const result = await contractInstacne[_functionSelector].call().call();
+      const result = await contractInstance[_functionSelector].call().call();
 
       return { result };
     } catch (error) {
