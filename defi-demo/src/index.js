@@ -9,14 +9,14 @@ import './index.css';
 
 const rootElement = document.getElementById('root');
 render(
-    <BrowserRouter>
-        <Routes>
-            <Route path="/" element={<Connector />} />
-            <Route path="connector" element={<Connector />} />
-            <Route path="contract" element={<Contract />} />
-            <Route path="transaction" element={<Transaction />} />
-=            <Route path="signsteps" element={<SignSteps />} />
-        </Routes>
-    </BrowserRouter>,
-    rootElement
+  <BrowserRouter>
+    <Routes>
+      <Route path="/" element={<Connector />} />
+      <Route path="connector" element={<Connector />} />
+      <Route path="contract" element={<Contract />} />
+      <Route path="transaction" element={<Transaction />} />
+      <Route path="signsteps" element={<SignSteps />} />
+    </Routes>
+  </BrowserRouter>,
+  rootElement
 );
