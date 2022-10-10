@@ -3,36 +3,90 @@ import '../App.scss';
 import BigNumber from 'bignumber.js';
 import { TronWebConnector } from '@widgets/tronweb-connector';
 import { ContractInteract } from '@widgets/contract-interact';
+import { Spin } from 'antd';
 import Menu from '../components/menu';
 const { trigger, sign, broadcast, send, call, view, deploy, sendTrx, sendToken } = ContractInteract;
 
 function App() {
-  const [defaultAccount, setDefaultAccount] = useState(null);
+  const [defaultAccount, setDefaultAccount] = useState('');
   const [defaultAccountBalance, setDefaultAccountBalance] = useState('--');
   const [accountsChangedMsg, setAccountsChangedMsg] = useState('');
+  const [loading, setLoading] = useState(false);
 
   const trxPrecision = 1e6;
+
+  const initUserInfo = async (userAddress) => {
+    setDefaultAccount(userAddress);
+    updateAccountBalance(userAddress);
+  };
+
+  const checkLoginStatus = async () => {
+    const tronwebRes = await TronWebConnector.activate(false); // init tronweb without login
+    console.log(tronwebRes);
+    if (tronwebRes?.defaultAddress?.base58) {
+      initUserInfo(tronwebRes.defaultAddress.base58);
+    } else {
+      resetDefaultAccount();
+    }
+  }
 
   useEffect(() => {
     if (window.tronWeb?.defaultAddress) {
       initUserInfo(window.tronWeb.defaultAddress.base58);
     }
     setAccountsChangedMsg('');
+    setLoading(false);
+    checkLoginStatus();
+    addListener();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const initUserInfo = async (userAddress) => {
-    setDefaultAccount(userAddress);
-    const accountInfo = await window.tronWeb.trx.getAccount(userAddress);
-    const accountBalance = new BigNumber(accountInfo.balance).div(trxPrecision);
-    setDefaultAccountBalance(accountBalance);
+  const resetDefaultAccount = () => {
+    setDefaultAccount('');
+    setDefaultAccountBalance('--');
+  };
+
+  const updateAccountBalance = async (userAddress) => {
+    const accountInfo = await window.tronWeb.trx.getAccount(userAddress? userAddress: defaultAccount);
+    if (accountInfo?.balance) {
+      const accountBalance = new BigNumber(accountInfo.balance).div(trxPrecision);
+      setDefaultAccountBalance(accountBalance);
+    } else {
+      setDefaultAccountBalance('--');
+    }
   };
 
   const activate = async () => {
-    const tronWeb = await TronWebConnector.activate();
-
-    if (tronWeb?.defaultAddress?.base58) {
-      initUserInfo(tronWeb.defaultAddress.base58);
+    setAccountsChangedMsg('');
+    setLoading(true);
+    const res = await TronWebConnector.activate();
+    setLoading(false);
+    if (res?.defaultAddress?.base58) {
+      initUserInfo(res.defaultAddress.base58);
+    } else if (!res?.success && res?.errorCode && res?.msg) {
+      setAccountsChangedMsg(`${res.msg}(${res.errorCode})`);
+    } else {
+      setAccountsChangedMsg(`Please install and log in to TronLink first`);
     }
+  };
+
+  const addListener = () => {
+    TronWebConnector.on('accountsChanged', async res => {
+      checkLoginStatus();
+    })
+
+    TronWebConnector.on('chainChanged', res => {
+      setAccountsChangedMsg(`Current account fullNode is: ${res.data.node.fullNode}`);
+    })
+
+    TronWebConnector.on('disconnectWeb', res => {
+      setAccountsChangedMsg(`disconnect website name: ${res.data.websiteName}`);
+      resetDefaultAccount();
+    })
+
+    TronWebConnector.on('connectWeb', res => {
+      setAccountsChangedMsg(`connect website name: ${res.data.websiteName}`);
+    })
   };
 
   const funcABIV2 = {
@@ -247,6 +301,7 @@ function App() {
           </div>
         }
         {accountsChangedMsg && <div className='msg' title={accountsChangedMsg}>Result message: {accountsChangedMsg}</div>}
+        <Spin spinning={loading} />
       </section>
     </div>
   );

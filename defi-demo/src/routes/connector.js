@@ -20,7 +20,7 @@ function App() {
   const checkLoginStatus = async () => {
     const tronwebRes = await TronWebConnector.activate(false); // init tronweb without login
     console.log(tronwebRes);
-    if (tronwebRes) {
+    if (tronwebRes?.defaultAddress?.base58) {
       initUserInfo(tronwebRes.defaultAddress.base58);
     } else {
       resetDefaultAccount();
