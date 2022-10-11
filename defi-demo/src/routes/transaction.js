@@ -98,6 +98,11 @@ function App() {
   };
 
   const sendTrxFunc = async () => {
+    if (defaultAccountBalance === '--' || defaultAccountBalance?.lt(1)) {
+      openTransModal({ step: 3, txId: '', customObj: {title: 'Insufficient balance'}});
+      return;
+    }
+
     openTransModal({ step: 1 });
 
     const res = await sendTrx(
