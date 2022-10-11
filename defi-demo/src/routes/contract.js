@@ -33,6 +33,9 @@ function App() {
   useEffect(() => {
     if (window.tronWeb?.defaultAddress) {
       initUserInfo(window.tronWeb.defaultAddress.base58);
+      setInterval(() => {
+        updateAccountBalance(window.tronWeb.defaultAddress.base58);
+      }, 60000);
     }
     setAccountsChangedMsg('');
     setLoading(false);
@@ -247,6 +250,7 @@ function App() {
 
     if (res?.result) {
       setAccountsChangedMsg('Send 1 TRX to TBHHa5Z6WQ1cRcgUhdvqdW4f728f2fiJmF success');
+      updateAccountBalance(defaultAccount);
     } else {
       setAccountsChangedMsg(res.msg);
     }

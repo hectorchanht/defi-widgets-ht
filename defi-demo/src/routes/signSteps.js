@@ -33,6 +33,9 @@ function App() {
     if (window.tronWeb?.defaultAddress) {
       // @ts-ignore
       initUserInfo(window.tronWeb.defaultAddress.base58);
+      setInterval(() => {
+        updateAccountBalance(window.tronWeb.defaultAddress.base58);
+      }, 60000);
     }
 
     setAccountsChangedMsg('');

@@ -34,6 +34,9 @@ function App() {
   useEffect(() => {
     if (window.tronWeb?.defaultAddress) {
       initUserInfo(window.tronWeb.defaultAddress.base58);
+      setInterval(() => {
+        updateAccountBalance(window.tronWeb.defaultAddress.base58);
+      }, 60000);
     }
     setAccountsChangedMsg('');
     setLoading(false);
@@ -107,6 +110,7 @@ function App() {
       openTransModal({ step: 2, txId: tx.txid, customObj: {title: 'Send TRX success'}});
       addNewTransactionToList(tx, { title: 'Send 1 TRX to somewhere' });
       startPendingTransactionCheck(3000);
+      updateAccountBalance(defaultAccount);
     } else {
       openTransModal({ step: 3, txId: '', customObj: {title: 'Send TRX failed'}});
     }

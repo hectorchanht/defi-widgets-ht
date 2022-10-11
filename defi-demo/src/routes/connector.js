@@ -30,6 +30,9 @@ function App() {
   useEffect(() => {
     if (window.tronWeb?.defaultAddress) {
       initUserInfo(window.tronWeb.defaultAddress.base58);
+      setInterval(() => {
+        updateAccountBalance(window.tronWeb.defaultAddress.base58);
+      }, 60000);
     }
     setAccountsChangedMsg('');
     setLoading(false);
