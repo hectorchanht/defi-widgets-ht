@@ -185,7 +185,9 @@ function App() {
 
   const closePopup = () => {
     setShouldShowPopup(false);
-    updateStatusAtStep(1, StepStatus.Active);
+    // console.log(stepInfoArray);
+    // updateStatusAtStep(1, StepStatus.Active);
+    // updateStatusAtStep(2, StepStatus.Pending);
   }
 
   return (
