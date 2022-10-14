@@ -150,8 +150,10 @@ function App() {
     const res = await trigger(
       'TLmDopsmzmGDpQFyzRp1EDQJ588W7URXdH',
       "postMessage(string)",
-      { parameters: [{ type: 'string', value: 'Hello' }] }
+      [{ type: 'string', value: 'Hello' }]
     );
+
+    console.log(res);
 
     if (res.result) {
       setAccountsChangedMsg(`Trigger success, the transaction ID is ${res?.transaction?.txID}`);
@@ -164,7 +166,7 @@ function App() {
     const { transaction, result } = await trigger(
         'TLmDopsmzmGDpQFyzRp1EDQJ588W7URXdH',
         "postMessage(string)",
-        { parameters: [{ type: 'string', value: 'Hello' }] }
+        [{ type: 'string', value: 'Hello' }]
     );
     if (!result.result) {
       console.error("error:", result);
@@ -184,7 +186,7 @@ function App() {
     const { transaction, result } = await trigger(
         'TLmDopsmzmGDpQFyzRp1EDQJ588W7URXdH',
         "postMessage(string)",
-        { parameters: [{ type: 'string', value: 'Hello' }] }
+        [{ type: 'string', value: 'Hello' }]
     );
     if (!result.result) {
       console.error("error:", result);
