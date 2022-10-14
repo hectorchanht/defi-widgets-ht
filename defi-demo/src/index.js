@@ -16,7 +16,7 @@ render(
             <Route path="connector" element={<Connector />} />
             <Route path="contract" element={<Contract />} />
             <Route path="transaction" element={<Transaction />} />
-            <Route path="tokenlist" element={<TokenList />} />
+            {/* <Route path="tokenlist" element={<TokenList />} /> */}
             <Route path="signsteps" element={<SignSteps />} />
         </Routes>
     </BrowserRouter>,
