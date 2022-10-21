@@ -1,7 +1,6 @@
+===========================
 transaction-confirm
 ===========================
-
-------------------------------------------------------------------------------
 
 transaction-confirm helps dapp to handle the event of newly created
 transactions. With transaction-confirm, dapp developers will be able to:
@@ -16,40 +15,38 @@ Get Started
 ===========
 
 Installation
-~~~~~~~~~~~~
+-------------------------
 
 -  ``npm i``
 
 Run
-~~~
+-----------
 
 -  ``npm run start``
 
 Build
-~~~~~
+-----------
 
 -  ``npm run build``
 
 ------------------------------------------------------------------------------
 
-Display the transaction modal
+openTransModal
 =============================
 
-Developer can display the transaction modal using the ``openTransModal``
-method
+Display the transaction modal with step info
 
-Request Parameters
-~~~~~~~~~~~~~~~~~~
+Parameters
+-------------------------
 
-========= ===================================== ======
-Argument  Description                           Type
-========= ===================================== ======
-stepInfo  Display settings for the modal        object
-customObj Additional configuration of the modal object
-========= ===================================== ======
+============= ===================================== ======
+Argument      Description                           Type
+============= ===================================== ======
+stepInfo      The info to display in the modal      object
+tronscanLink  The tronscan site for <a> redirection string
+============= ===================================== ======
 
-stepInfo object
-~~~~~~~~~~~~~~~
+stepInfo:
 
 +-----------------------+-----------------------+-----------------------+
 | Argument              | Description           | Type                  |
@@ -63,9 +60,13 @@ stepInfo object
 | txId                  | Transaction id of the | string                |
 |                       | transaction(if any)   |                       |
 +-----------------------+-----------------------+-----------------------+
+| customObj             | Additional            | object                |
+|                       | configuration         |                       |
+|                       | of the modal          |                       |
+|                       |                       |                       |
++-----------------------+-----------------------+-----------------------+
 
-customObj object
-~~~~~~~~~~~~~~~~
+customObj:
 
 +-----------------------+-----------------------+-----------------------+
 | Argument              | Description           | Type                  |
@@ -97,24 +98,24 @@ customObj object
 +-----------------------+-----------------------+-----------------------+
 
 Example
-~~~~~~~
+-----------
 
 ::
 
-   openTransModal({step: 2, txId: 'xxxxxx'}, {title: 'Send TRX success'});
+   openTransModal(
+      {step: 2, txId: 'xxxxxx', customObj: {title: 'Send TRX success'}},
+      'https://tronscan.org/#/'
+   );
 
 ------------------------------------------------------------------------------
 
-Add new transaction to the pending transaction list
-===================================================
+addNewTransactionToList
+==============================
 
-Developer can save a new transaction to the pending transaction list in
-the browser’s local storage using ``addNewTransactionToList`` method
+Add new transaction to the pending transaction list in the browser’s local storage
 
-.. _request-parameters-1:
-
-Request Parameters
-~~~~~~~~~~~~~~~~~~
+Parameters
+-------------------------
 
 +-------------------------+-------------------------+------------------+
 | Argument                | Description             | Type             |
@@ -135,7 +136,7 @@ Request Parameters
 .. _example-1:
 
 Example
-~~~~~~~
+-----------
 
 ::
 
@@ -148,28 +149,27 @@ Example
 
 ------------------------------------------------------------------------------
 
-Update an existing transaction in the pending transaction list
-==============================================================
+updateTransactionInList
+=========================
 
-Developer can update the content of an existing transaction stored in
-the pending transaction list using ``updateTransactionInList`` method
+Update an existing transaction in the pending transaction list in localStorage
 
 .. _request-parameters-2:
 
-Request Parameters
-~~~~~~~~~~~~~~~~~~
+Parameters
+-------------------------
 
 ======== ==================================== ======
 Argument Description                          Type
 ======== ==================================== ======
 record   The transaction object to be updated object
-tronweb  Tronweb instance                     object
+tronweb  The Tronweb instance                 object
 ======== ==================================== ======
 
 .. _example-2:
 
 Example
-~~~~~~~
+-----------
 
 ::
 
@@ -181,16 +181,15 @@ Example
 
 ------------------------------------------------------------------------------
 
-Update transaction status and display notification message
+logTransaction
 ==========================================================
 
-Developer can update the status of an existing transaction and display
-the notification message using ``logTransaction`` method
+Update transaction status and display notification message
 
 .. _request-parameters-3:
 
-Request Parameters
-~~~~~~~~~~~~~~~~~~
+Parameters
+-------------------------
 
 ======== =========================================== ======
 Argument Description                                 Type
@@ -203,24 +202,22 @@ lang     Language of the notifaction message content string
 .. _example-3:
 
 Example
-~~~~~~~
+-----------
 
 ::
 
    logTransaction(transaction, 2)
 
 ------------------------------------------------------------------------------
+getDescription
+=====================
 
-Get transaction description content
-===================================
-
-Developer can get the transaction description dom object using the
-``getDescription`` method
+Get transaction description dom object
 
 .. _request-parameters-4:
 
-Request Parameters
-~~~~~~~~~~~~~~~~~~
+Parameters
+-------------------------
 
 ======== ========================================= ======
 Argument Description                               Type
@@ -231,7 +228,7 @@ text     The status text display on the dom object string
 ======== ========================================= ======
 
 Response
-~~~~~~~~
+----------------------
 
 The dom object
 
@@ -254,7 +251,7 @@ The dom object
 .. _example-4:
 
 Example
-~~~~~~~
+-----------
 
 ::
 
@@ -262,17 +259,15 @@ Example
 
 ------------------------------------------------------------------------------
 
-Get transaction info
+getTransactionInfo
 ====================
 
-Developer can get the latest status of a transaction using
-``getTransactionInfo`` method This method uses
-tronWeb.trx.getConfirmedTransaction
+Get the latest status of a transaction info
 
 .. _request-parameters-5:
 
-Request Parameters
-~~~~~~~~~~~~~~~~~~
+Parameters
+-------------------------
 
 ======== ================ ======
 Argument Description      Type
@@ -284,14 +279,14 @@ tronweb  Tronweb instance object
 .. _response-1:
 
 Response
-~~~~~~~~
+----------------------
 
 The promise of tronWeb.trx.getConfirmedTransaction response
 
 .. _example-5:
 
 Example
-~~~~~~~
+-----------
 
 ::
 
@@ -302,18 +297,18 @@ Example
 
 ------------------------------------------------------------------------------
 
-Check the status of each pending transaction in the transaction list
+checkPendingTransaction
 ====================================================================
 
-``checkPendingTransaction`` will retrieve the pending transaction list
+Check the status of each pending transaction in the transaction list
 from the browser’s local storage, and use ``getTransactionInfo`` to
 check the latest status of each pending transaction. If the status was
 updated, call ``logTransaction`` to update and save the transaction.
 
 .. _request-parameters-6:
 
-Request Parameters
-~~~~~~~~~~~~~~~~~~
+Parameters
+-------------------------
 
 ======== ================ ======
 Argument Description      Type
@@ -324,7 +319,7 @@ tronweb  Tronweb instance object
 .. _example-6:
 
 Example
-~~~~~~~
+-----------
 
 ::
 
@@ -332,17 +327,14 @@ Example
 
 ------------------------------------------------------------------------------
 
-Constantly check the status of each pending transactions
+startPendingTransactionCheck
 ========================================================
-
-Developer can start the job to constantly check the status of each
-transaction in the pending transaction list using
-``startPendingTransactionCheck`` call
+Constantly check the status of each pending transactions
 
 .. _request-parameters-7:
 
-Request Parameters
-~~~~~~~~~~~~~~~~~~
+Parameters
+-------------------------
 
 +--------------+-------------------------------------------------------+--------+
 | Argument     | Description                                           | Type   |
@@ -355,7 +347,7 @@ Request Parameters
 .. _example-7:
 
 Example
-~~~~~~~
+-----------
 
 ::
 
