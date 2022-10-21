@@ -32,19 +32,6 @@ Build
 
 -  ``npm run build``
 
-Available functions
--------------------
-
-1. `trigger <#trigger>`__
-2. `sign <#sign>`__
-3. `broadcast <#broadcast>`__
-4. `send <#send>`__
-5. `call <#call>`__
-6. `view <#view>`__
-7. `Deploy <#Deploy>`__
-8. `sendTrx <#sendtrx>`__
-9. `sendToken <#sendtoken>`__
-
 Implementation tips
 -------------------
 
@@ -572,7 +559,8 @@ Response
 Deploy
 ======================
 
-### Parameters
+Parameters
+---------------
 
 ::
 
@@ -678,7 +666,8 @@ Response
 sendTrx
 ==============
 
-### Parameters
+Parameters
+----------------
 
 ::
 
