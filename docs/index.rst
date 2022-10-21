@@ -10,7 +10,6 @@ Welcome to the TRON developer hub. You'll find comprehensive guides and document
 
    contract-interact
    sign-steps
-   swap-token-list
    transaction-confirm
    tronweb-connector
    
