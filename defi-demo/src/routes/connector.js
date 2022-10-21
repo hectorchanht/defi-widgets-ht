@@ -19,7 +19,9 @@ function App() {
 
   const checkLoginStatus = async () => {
     const tronwebRes = await TronWebConnector.activate(false); // init tronweb without login
-    // console.log(tronwebRes);
+    tronwebRes.setFullNode('https://api.nileex.io')
+    tronwebRes.setSolidityNode('https://api.nileex.io')
+    tronwebRes.setEventServer('https://api.nileex.io')
     if (tronwebRes?.defaultAddress?.base58) {
       initUserInfo(tronwebRes.defaultAddress.base58);
     } else {
@@ -30,6 +32,9 @@ function App() {
   useEffect(() => {
     if (window.tronWeb?.defaultAddress) {
       initUserInfo(window.tronWeb.defaultAddress.base58);
+      setInterval(() => {
+        updateAccountBalance(window.tronWeb.defaultAddress.base58);
+      }, 60000);
     }
     setAccountsChangedMsg('');
     setLoading(false);

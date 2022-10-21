@@ -173,3 +173,10 @@
 .ant-steps-vertical {
     width: 500px;
 }
+
+@media screen and (max-width: 1024px) {
+    .App .content, .msg {
+        width: calc(100% - 40px);
+        white-space: unset;
+    }
+}
