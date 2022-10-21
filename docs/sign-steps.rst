@@ -1,4 +1,5 @@
-What is sign-steps
+==================
+sign-steps
 ==================
 
 sign-steps helps dapp to execute multiple contract signing steps via the
@@ -8,32 +9,35 @@ to:
 -  execute multiple contract signing steps
 -  listen to contract signing and reject events
 
+------------------------------------------------------------------------------
+
 Get Started
 ===========
 
 Installation
-~~~~~~~~~~~~
+-----------------------------------
 
 -  ``npm i``
 
 Run
-~~~
+----------
 
 -  ``npm run start``
 
 Build
-~~~~~
+----------
 
 -  ``npm run build``
 
-Execute multiple contract signing steps
+------------------------------------------------------------------------------
+
+executeContinuousSigns
 =======================================
 
-Developer can execute multiple contract signing steps using the
-``executeContinuousSigns`` async method
+Execute multiple contract signing steps
 
-Request Parameters
-~~~~~~~~~~~~~~~~~~
+Parameters
+-----------------------------------
 
 +-----------------------+-----------------------+-----------------------+
 | Argument              | Description           | Type                  |
@@ -44,7 +48,7 @@ Request Parameters
 +-----------------------+-----------------------+-----------------------+
 
 Example
-~~~~~~~
+---------------
 
 ::
 
@@ -65,29 +69,31 @@ Example
    }
    executeContinuousSigns([params1, params2]);
 
-Continue the execution at the current step
+------------------------------------------------------------------------------
+
+continueCurrentSignSteps
 ==========================================
 
-Developer can continue the current continuous sign steps at current step
-using the ``continueCurrentSignSteps`` method
+Continue the execution at the current step
 
 .. _example-1:
 
 Example
-~~~~~~~
+---------------
 
 ::
 
    continueCurrentSignSteps();
 
-Listen to contract signing events
+------------------------------------------------------------------------------
+
+on
 =================================
 
-Developer can listen to the contract signing events using the ``on``
-method
+Listen to contract signing events
 
 Parameters
-~~~~~~~~~~
+-------------------------
 
 ======== =========================================== ========
 Argument Description                                 Type
@@ -97,7 +103,7 @@ callback Call back function in response to the event Function
 ======== =========================================== ========
 
 Event action name
-~~~~~~~~~~~~~~~~~
+---------------------------------------------
 
 +-----------------------------------+-----------------------------------+
 | Event                             | Description                       |
@@ -118,7 +124,7 @@ Event action name
 .. _example-2:
 
 Example
-~~~~~~~
+---------------
 
 ::
 
@@ -136,16 +142,17 @@ Example
      removeSignStepsListeners()
    })
 
-Remove the contract signing events listener
+------------------------------------------------------------------------------
+
+off
 ===========================================
 
-Developer can remove the contract signing events listener using the
-``off`` method
+Remove the contract signing events listener
 
 .. _parameters-1:
 
 Parameters
-~~~~~~~~~~
+-------------------------
 
 ======== =========================================== ========
 Argument Description                                 Type
@@ -157,7 +164,7 @@ callback Call back function in response to the event Function
 .. _example-3:
 
 Example
-~~~~~~~
+---------------
 
 ::
 
@@ -166,21 +173,21 @@ Example
    SignSteps.off('errorAtStep', errorEventCallback)
    SignSteps.off('completedAllSteps', completedAllStepsCallback)
 
-Get the current step number
+------------------------------------------------------------------------------
+getCurrentStepNumber
 ===========================
 
-Developer can get the current step number using the
-``getCurrentStepNumber`` method
+Get the current step number
 
 Response
-~~~~~~~~
+---------------
 
 The step number of the existing continuous signature
 
 .. _example-4:
 
 Example
-~~~~~~~
+---------------
 
 ::
 
