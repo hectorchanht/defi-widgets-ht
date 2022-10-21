@@ -7,17 +7,18 @@ import styles from './assets/css/transaction.scss';
 
 export const openTransModal = async (
   stepInfo = { step: 0, txId: '', customObj: {} },
+  tronscanLink: string = ''
 ) => {
   let container: any = document.querySelector('.wg-modal-root');
   if (!container) {
     container = document.createElement('div');
     container.classList.add('wg-modal-root');
 
-    const contentString: any = ModalContent(stepInfo);
+    const contentString: any = ModalContent(stepInfo, { tronscanLink });
     container.innerHTML = renderToString(contentString);
     document.body.appendChild(container);
   } else {
-    const contentString: any = ModalContent(stepInfo);
+    const contentString: any = ModalContent(stepInfo, { tronscanLink });
     container.innerHTML = renderToString(contentString);
   }
   container.style.display = 'block';
@@ -106,7 +107,8 @@ const logTransaction = async (
       confirmed: ' Confirmed',
       failed: 'Failed',
     },
-  } = {}
+  } = {},
+  tronscanLink: string
 ) => {
   item.status = status;
   if (status === 1) {
@@ -122,7 +124,7 @@ const logTransaction = async (
     <div className={classNames(styles.notification, 'notification')}>
       <div className="message">{customObj?.title}</div>
       <div className="description">
-        {await getDescription(status, item, description)}
+        {await getDescription(status, item, description, tronscanLink)}
       </div>
       <div className={classNames(styles.notifyClose, 'notify-close')}>{<CloseOutlined />} </div>
     </div>
@@ -160,7 +162,7 @@ const getDescription = async (
   type: number,
   item: any,
   text: string,
-  tronscanLink: string = 'https://nile.tronscan.io/#',
+  tronscanLink: string = 'https://tronscan.org/#/',
   {
     statusTexts = {
       pending: 'Pending',
@@ -261,7 +263,7 @@ const getTransactionInfo = (txid: string, tronweb = null) => {
   });
 };
 
-const checkPendingTransactions = (intlText: any = null) => {
+const checkPendingTransactions = (intlText: any = null, tronscanLink: string) => {
   const tronWeb = (window as any).tronWeb;
   let data =
     window.localStorage.getItem(
@@ -274,20 +276,20 @@ const checkPendingTransactions = (intlText: any = null) => {
       const { tx, status, showPending } = item;
       if (Number(status) === 1) {
         if (showPending) {
-          logTransaction(item, 1, { intlText });
+          logTransaction(item, 1, { intlText }, tronscanLink);
         }
         item.checkCnt++;
         getTransactionInfo(tx.txid)
           .then((r: any) => {
             if (r && r.ret && r.ret[0] && r.ret[0].contractRet) {
               if (r.ret[0].contractRet === 'SUCCESS') {
-                logTransaction(item, 2, { intlText });
+                logTransaction(item, 2, { intlText }, tronscanLink);
               } else {
-                logTransaction(item, 3, { intlText });
+                logTransaction(item, 3, { intlText }, tronscanLink);
               }
             } else {
               if (item.checkCnt != undefined && item.checkCnt >= 30) {
-                logTransaction(item, 3, { intlText });
+                logTransaction(item, 3, { intlText }, tronscanLink);
               }
             }
           })
@@ -300,12 +302,12 @@ const checkPendingTransactions = (intlText: any = null) => {
   );
 };
 
-export const startPendingTransactionCheck = (milliseconds: number = 3000, intlText: any = null) => {
+export const startPendingTransactionCheck = (milliseconds: number = 3000, intlText: any = null, tronscanLink: string = '') => {
   let interval = null;
   if (!interval) {
     interval = setInterval(async () => {
       try {
-        checkPendingTransactions(intlText);
+        checkPendingTransactions(intlText, tronscanLink);
       } catch (err) {
         console.log('interval error:' + err);
       }

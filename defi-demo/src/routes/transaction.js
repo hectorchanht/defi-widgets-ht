@@ -101,11 +101,11 @@ function App() {
 
   const sendTrxFunc = async () => {
     if (defaultAccountBalance === '--' || defaultAccountBalance?.lt(1)) {
-      openTransModal({ step: 3, txId: '', customObj: {title: 'Insufficient balance'}});
+      openTransModal({ step: 3, txId: '', customObj: {title: 'Insufficient balance'}}, 'https://nile.tronscan.org/#');
       return;
     }
 
-    openTransModal({ step: 1 });
+    openTransModal({ step: 1 }, 'https://nile.tronscan.org/#');
 
     const res = await sendTrx(
       'TBHHa5Z6WQ1cRcgUhdvqdW4f728f2fiJmF',
@@ -114,12 +114,12 @@ function App() {
 
     if (res?.result) {
       const tx = res
-      openTransModal({ step: 2, txId: tx.txid, customObj: {title: 'Send TRX success'}});
+      openTransModal({ step: 2, txId: tx.txid, customObj: {title: 'Send TRX success'}}, 'https://nile.tronscan.org/#');
       addNewTransactionToList(tx, { title: 'Send 1 TRX to somewhere' });
-      startPendingTransactionCheck(3000);
+      startPendingTransactionCheck(3000, null, 'https://nile.tronscan.org/#');
       updateAccountBalance(defaultAccount);
     } else {
-      openTransModal({ step: 3, txId: '', customObj: {title: 'Send TRX failed'}});
+      openTransModal({ step: 3, txId: '', customObj: {title: 'Send TRX failed'}}, 'https://nile.tronscan.org/#');
     }
   }
 
