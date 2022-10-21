@@ -31,13 +31,12 @@ Build
 
 ------------------------------------------------------------------------------
 
-Execute multiple contract signing steps
+executeContinuousSigns
 =======================================
 
-Developer can execute multiple contract signing steps using the
-``executeContinuousSigns`` async method
+Execute multiple contract signing steps
 
-Request Parameters
+Parameters
 -----------------------------------
 
 +-----------------------+-----------------------+-----------------------+
@@ -72,11 +71,10 @@ Example
 
 ------------------------------------------------------------------------------
 
-Continue the execution at the current step
+continueCurrentSignSteps
 ==========================================
 
-Developer can continue the current continuous sign steps at current step
-using the ``continueCurrentSignSteps`` method
+Continue the execution at the current step
 
 .. _example-1:
 
@@ -89,11 +87,10 @@ Example
 
 ------------------------------------------------------------------------------
 
-Listen to contract signing events
+on
 =================================
 
-Developer can listen to the contract signing events using the ``on``
-method
+Listen to contract signing events
 
 Parameters
 -------------------------
@@ -147,11 +144,10 @@ Example
 
 ------------------------------------------------------------------------------
 
-Remove the contract signing events listener
+off
 ===========================================
 
-Developer can remove the contract signing events listener using the
-``off`` method
+Remove the contract signing events listener
 
 .. _parameters-1:
 
@@ -178,12 +174,10 @@ Example
    SignSteps.off('completedAllSteps', completedAllStepsCallback)
 
 ------------------------------------------------------------------------------
-
-Get the current step number
+getCurrentStepNumber
 ===========================
 
-Developer can get the current step number using the
-``getCurrentStepNumber`` method
+Get the current step number
 
 Response
 ---------------
