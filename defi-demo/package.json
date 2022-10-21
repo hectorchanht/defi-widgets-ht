@@ -8,7 +8,6 @@
     "@testing-library/user-event": "^13.5.0",
     "@widgets/contract-interact": "file:../packages/contract-interact",
     "@widgets/sign-steps": "file:../packages/sign-steps",
-    "@widgets/swap-token-list": "../packages/swap-token-list/",
     "@widgets/transaction-confirm": "../packages/transaction-confirm/",
     "@widgets/tronweb-connector": "file:../packages/tronweb-connector",
     "antd": "^4.19.5",

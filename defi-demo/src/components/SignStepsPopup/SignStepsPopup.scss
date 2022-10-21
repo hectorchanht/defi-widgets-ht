@@ -253,3 +253,10 @@
     }
   }
 }
+
+@media screen and (max-width: 1024px) {
+  .sign-steps-popup .popup-content {
+    min-width: unset;
+    width: calc(100% - 40px);
+  }
+}

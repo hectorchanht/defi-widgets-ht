@@ -23,12 +23,13 @@ function SignStepsPopup({shouldShowPopup = false, stepInfoArray = [], onClosePop
   return (
     <div className={classNames('sign-steps-popup', { 'is-active': shouldShowPopup })}>
       <div className='popup-content'>
-          <input
-            className='close-button'
-            type='image'
-            src={closeIcon}
-            onClick={onClosePopup}
-          />
+        <input
+          className='close-button'
+          type='image'
+          src={closeIcon}
+          onClick={onClosePopup}
+          alt=""
+        />
         <div className='popup-title'>Contract sign steps</div>
         <div className='popup-desc'>Please follow the below steps to mint the token...</div>
         <div className='steps'>

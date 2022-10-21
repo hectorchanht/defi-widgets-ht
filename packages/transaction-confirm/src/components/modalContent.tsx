@@ -31,7 +31,7 @@ const modalContent = (
     customObj: {}
   },
   {
-    tronscanLink = 'https://nile.tronscan.io/#'
+    tronscanLink = 'https://tronscan.org/#/'
   } = {}
 ) => {
   const { step, txId, customObj } = stepInfo;
