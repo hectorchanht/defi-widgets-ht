@@ -9,7 +9,7 @@ developers will be able to:
 -  trigger transaction, sign and broadcast
 -  use the call or view method to query the specific parameters of the
    contract
--  deploy contract
+-  Deploy contract
 -  send trx or other token
 
 ------------------------------------------------------------------------------
@@ -18,17 +18,17 @@ Get Started
 ===========
 
 Installation
-~~~~~~~~~~~~
+-------------------------------
 
 -  ``npm i``
 
 Run
-~~~
+---------------
 
 -  ``npm run start``
 
 Build
-~~~~~
+---------------
 
 -  ``npm run build``
 
@@ -41,14 +41,14 @@ Available functions
 4. `send <#send>`__
 5. `call <#call>`__
 6. `view <#view>`__
-7. `deploy <#deploy>`__
+7. `Deploy <#Deploy>`__
 8. `sendTrx <#sendtrx>`__
 9. `sendToken <#sendtoken>`__
 
 Implementation tips
 -------------------
 
-Clone the repo or copy “~/packages/contract-interact/” and import it as
+Clone the repo or copy “/packages/contract-interact/” and import it as
 local dependency with the preferred name “@widgets/contract-interact” in
 package.json.
 ``"dependencies": {       ...       "@widgets/contract-interact": "file:../packages/contract-interact/",       ...     }``
@@ -73,19 +73,19 @@ and the await keyword is permitted within it. The return type is
 `Promise
 object <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise>`__.
 
-Check “~/defi-demo/src/routes/contract.js” for real world
+Check “/defi-demo/src/routes/contract.js” for real world
 implementation.
 
-Check “~/packages/contract-interact/src/index.ts” or
-“~/packages/contract-interact/dist/index.d.ts” for code source.
+Check “/packages/contract-interact/src/index.ts” or
+“/packages/contract-interact/dist/index.d.ts” for code source.
 
 ------------------------------------------------------------------------------
 
 trigger
 -------
 
-parameters:
-~~~~~~~~~~~
+Parameters
+------------------------------
 
 ::
 
@@ -93,8 +93,8 @@ parameters:
      tronweb?: {} | undefined;
    })
 
-example:
-~~~~~~~~
+Example
+------------------------------
 
 ::
 
@@ -106,8 +106,8 @@ example:
 
    // convert response.constant_result from Hex to ASCII to retrieve string value
 
-response:
-~~~~~~~~~
+Response
+------------------------------
 
 ::
 
@@ -154,7 +154,7 @@ response:
 sign
 ----
 
-parameters:
+Parameters
 ------------
 
 ::
@@ -163,8 +163,8 @@ parameters:
 
 .. _example-1:
 
-example:
-~~~~~~~~
+Example
+------------------------------
 
 ::
 
@@ -192,8 +192,8 @@ example:
 
 .. _response-1:
 
-response:
-~~~~~~~~~
+Response
+------------------------------
 
 ::
 
@@ -233,8 +233,8 @@ broadcast
 
 .. _parameters-1:
 
-parameters:
-~~~~~~~~~~~
+Parameters
+------------------------------
 
 ::
 
@@ -242,8 +242,8 @@ parameters:
 
 .. _example-2:
 
-example:
-~~~~~~~~
+Example
+------------------------------
 
 ::
 
@@ -275,7 +275,7 @@ example:
    const response = await ContractInteract.broadcast(signedTransaction);
 
 transaction:
-~~~~~~~~~~~~
+-------------------------------
 
 ::
 
@@ -311,7 +311,7 @@ transaction:
    }
 
 signedTransaction:
-~~~~~~~~~~~~~~~~~~
+----------------------------------------------
 
 ::
 
@@ -346,8 +346,8 @@ signedTransaction:
 
 .. _response-2:
 
-response:
-~~~~~~~~~
+Response
+------------------------------
 
 ::
 
@@ -391,8 +391,8 @@ send
 
 .. _parameters-2:
 
-parameters:
-~~~~~~~~~~~
+Parameters
+------------------------------
 
 ::
 
@@ -402,8 +402,8 @@ parameters:
 
 .. _example-3:
 
-example:
-~~~~~~~~
+Example
+------------------------------
 
 ::
 
@@ -415,8 +415,8 @@ example:
 
 .. _response-3:
 
-response:
-~~~~~~~~~
+Response
+------------------------------
 
 ::
 
@@ -460,8 +460,8 @@ call
 
 .. _parameters-3:
 
-parameters:
-~~~~~~~~~~~
+Parameters
+------------------------------
 
 ::
 
@@ -472,8 +472,8 @@ parameters:
 
 .. _example-4:
 
-example:
-~~~~~~~~
+Example
+------------------------------
 
 ::
 
@@ -485,8 +485,8 @@ example:
 
 .. _response-4:
 
-response:
-~~~~~~~~~
+Response
+------------------------------
 
 ::
 
@@ -501,8 +501,8 @@ view
 
 .. _parameters-4:
 
-parameters:
-~~~~~~~~~~~
+Parameters
+------------------------------
 
 ::
 
@@ -512,8 +512,8 @@ parameters:
 
 .. _example-5:
 
-example:
-~~~~~~~~
+Example
+------------------------------
 
 ::
 
@@ -525,8 +525,8 @@ example:
 
 .. _response-5:
 
-response:
-~~~~~~~~~
+Response
+------------------------------
 
 ::
 
@@ -569,10 +569,10 @@ response:
 
 ------------------------------------------------------------------------------
 
-deploy
+Deploy
 ------
 
-### parameters:
+### Parameters
 
 ::
 
@@ -583,24 +583,24 @@ deploy
 
 .. _example-6:
 
-example:
-~~~~~~~~
+Example
+------------------------------
 
 ::
 
-   const deployOptions = {
+   const DeployOptions = {
      abi: funcABIV2.abi,
      bytecode: funcABIV2.bytecode,
      funcABIV2: funcABIV2.abi[0],
      parametersV2: [1]
    }
 
-   const response = await ContractInteract.deploy(deployOptions);
+   const response = await ContractInteract.Deploy(DeployOptions);
 
 .. _response-6:
 
-response:
-~~~~~~~~~
+Response
+------------------------------
 
 ::
 
@@ -678,7 +678,7 @@ response:
 sendTrx
 -------
 
-### parameters:
+### Parameters
 
 ::
 
@@ -689,8 +689,8 @@ sendTrx
 
 .. _example-7:
 
-example:
-~~~~~~~~
+Example
+------------------------------
 
 ::
 
@@ -701,8 +701,8 @@ example:
 
 .. _response-7:
 
-response:
-~~~~~~~~~
+Response
+------------------------------
 
 ::
 
@@ -745,8 +745,8 @@ sendToken
 
 .. _parameters-5:
 
-parameters:
-~~~~~~~~~~~
+Parameters
+------------------------------
 
 ::
 
@@ -757,8 +757,8 @@ parameters:
 
 .. _example-8:
 
-example:
-~~~~~~~~
+Example
+------------------------------
 
 ::
 
@@ -770,8 +770,8 @@ example:
 
 .. _response-8:
 
-response:
-~~~~~~~~~
+Response
+------------------------------
 
 ::
 
