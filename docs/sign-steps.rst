@@ -15,17 +15,17 @@ Get Started
 ===========
 
 Installation
-~~~~~~~~~~~~
+-----------------------------------
 
 -  ``npm i``
 
 Run
-~~~
+----------
 
 -  ``npm run start``
 
 Build
-~~~~~
+----------
 
 -  ``npm run build``
 
@@ -38,7 +38,7 @@ Developer can execute multiple contract signing steps using the
 ``executeContinuousSigns`` async method
 
 Request Parameters
-~~~~~~~~~~~~~~~~~~
+-----------------------------------
 
 +-----------------------+-----------------------+-----------------------+
 | Argument              | Description           | Type                  |
@@ -49,7 +49,7 @@ Request Parameters
 +-----------------------+-----------------------+-----------------------+
 
 Example
-~~~~~~~
+---------------
 
 ::
 
@@ -81,7 +81,7 @@ using the ``continueCurrentSignSteps`` method
 .. _example-1:
 
 Example
-~~~~~~~
+---------------
 
 ::
 
@@ -96,7 +96,7 @@ Developer can listen to the contract signing events using the ``on``
 method
 
 Parameters
-~~~~~~~~~~
+-------------------------
 
 ======== =========================================== ========
 Argument Description                                 Type
@@ -106,7 +106,7 @@ callback Call back function in response to the event Function
 ======== =========================================== ========
 
 Event action name
-~~~~~~~~~~~~~~~~~
+---------------------------------------------
 
 +-----------------------------------+-----------------------------------+
 | Event                             | Description                       |
@@ -127,7 +127,7 @@ Event action name
 .. _example-2:
 
 Example
-~~~~~~~
+---------------
 
 ::
 
@@ -156,7 +156,7 @@ Developer can remove the contract signing events listener using the
 .. _parameters-1:
 
 Parameters
-~~~~~~~~~~
+-------------------------
 
 ======== =========================================== ========
 Argument Description                                 Type
@@ -168,7 +168,7 @@ callback Call back function in response to the event Function
 .. _example-3:
 
 Example
-~~~~~~~
+---------------
 
 ::
 
@@ -186,14 +186,14 @@ Developer can get the current step number using the
 ``getCurrentStepNumber`` method
 
 Response
-~~~~~~~~
+---------------
 
 The step number of the existing continuous signature
 
 .. _example-4:
 
 Example
-~~~~~~~
+---------------
 
 ::
 
