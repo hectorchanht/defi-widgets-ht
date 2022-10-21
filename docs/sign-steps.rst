@@ -1,7 +1,6 @@
+==================
 sign-steps
 ==================
-
-------------------------------------------------------------------------------
 
 sign-steps helps dapp to execute multiple contract signing steps via the
 TronLink Chrome extension. With sign-steps, dapp developers will be able
