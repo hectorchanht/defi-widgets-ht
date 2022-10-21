@@ -1,5 +1,7 @@
-What is tronweb-connector
+tronweb-connector
 =========================
+
+------------------------------------------------------------------------------
 
 tronweb-connector helps dapp to interact with the TRON network via the
 TronLink Chrome extension. With tronweb-connector, dapp developers will

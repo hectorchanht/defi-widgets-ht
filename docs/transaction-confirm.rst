@@ -1,5 +1,7 @@
-What is transaction-confirm
+transaction-confirm
 ===========================
+
+------------------------------------------------------------------------------
 
 transaction-confirm helps dapp to handle the event of newly created
 transactions. With transaction-confirm, dapp developers will be able to:

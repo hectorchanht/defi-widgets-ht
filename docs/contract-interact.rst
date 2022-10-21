@@ -1,5 +1,7 @@
-What is contract-interact
+contract-interact
 =========================
+
+----------------------------------------
 
 contract-interact can help dapp developers trigger contract
 transactions, query contract methods, etc. With contract-interact, dapp
