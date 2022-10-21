@@ -8,6 +8,8 @@ to:
 -  execute multiple contract signing steps
 -  listen to contract signing and reject events
 
+------------------------------------------------------------------------------
+
 Get Started
 ===========
 
@@ -25,6 +27,8 @@ Build
 ~~~~~
 
 -  ``npm run build``
+
+------------------------------------------------------------------------------
 
 Execute multiple contract signing steps
 =======================================
@@ -65,6 +69,8 @@ Example
    }
    executeContinuousSigns([params1, params2]);
 
+------------------------------------------------------------------------------
+
 Continue the execution at the current step
 ==========================================
 
@@ -79,6 +85,8 @@ Example
 ::
 
    continueCurrentSignSteps();
+
+------------------------------------------------------------------------------
 
 Listen to contract signing events
 =================================
@@ -136,6 +144,8 @@ Example
      removeSignStepsListeners()
    })
 
+------------------------------------------------------------------------------
+
 Remove the contract signing events listener
 ===========================================
 
@@ -165,6 +175,8 @@ Example
    SignSteps.off('signedAtStep', signedEventCallback)
    SignSteps.off('errorAtStep', errorEventCallback)
    SignSteps.off('completedAllSteps', completedAllStepsCallback)
+
+------------------------------------------------------------------------------
 
 Get the current step number
 ===========================

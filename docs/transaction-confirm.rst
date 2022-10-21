@@ -8,6 +8,8 @@ transactions. With transaction-confirm, dapp developers will be able to:
 -  display transaction confirm status on the transaction modal
 -  display notification message if transaction’s status was changed
 
+------------------------------------------------------------------------------
+
 Get Started
 ===========
 
@@ -25,6 +27,8 @@ Build
 ~~~~~
 
 -  ``npm run build``
+
+------------------------------------------------------------------------------
 
 Display the transaction modal
 =============================
@@ -97,6 +101,8 @@ Example
 
    openTransModal({step: 2, txId: 'xxxxxx'}, {title: 'Send TRX success'});
 
+------------------------------------------------------------------------------
+
 Add new transaction to the pending transaction list
 ===================================================
 
@@ -138,6 +144,8 @@ Example
 
    addNewTransactionToList(tx.txid, {title: 'Send 1 TRX to somewhere'}, 10);
 
+------------------------------------------------------------------------------
+
 Update an existing transaction in the pending transaction list
 ==============================================================
 
@@ -169,6 +177,8 @@ Example
    // And save to the pending transaction list
    updateTransactionInList(transaction)
 
+------------------------------------------------------------------------------
+
 Update transaction status and display notification message
 ==========================================================
 
@@ -196,6 +206,8 @@ Example
 ::
 
    logTransaction(transaction, 2)
+
+------------------------------------------------------------------------------
 
 Get transaction description content
 ===================================
@@ -246,6 +258,8 @@ Example
 
    getDescription(status, item, description)
 
+------------------------------------------------------------------------------
+
 Get transaction info
 ====================
 
@@ -284,6 +298,8 @@ Example
        console.log(response)
      })
 
+------------------------------------------------------------------------------
+
 Check the status of each pending transaction in the transaction list
 ====================================================================
 
@@ -311,6 +327,8 @@ Example
 ::
 
    checkPendingTransactions()
+
+------------------------------------------------------------------------------
 
 Constantly check the status of each pending transactions
 ========================================================

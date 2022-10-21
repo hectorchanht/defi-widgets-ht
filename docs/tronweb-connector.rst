@@ -9,6 +9,8 @@ be able to:
 -  retrieve the TronLink instance
 -  listen to TronLink events
 
+------------------------------------------------------------------------------
+
 Get Started
 ===========
 
@@ -26,6 +28,8 @@ Build
 ~~~~~
 
 -  ``npm run build``
+
+------------------------------------------------------------------------------
 
 Request user authorization to dapp
 ==================================
@@ -84,6 +88,8 @@ Example
    } else {
      console.log(`Please install and log in to TronLink first`);
    }
+
+------------------------------------------------------------------------------
 
 Listen to TronLink events
 =========================
