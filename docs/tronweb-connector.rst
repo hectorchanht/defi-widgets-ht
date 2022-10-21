@@ -17,30 +17,29 @@ Get Started
 ===========
 
 Installation
-~~~~~~~~~~~~
+-----------------------
 
 -  ``npm i``
 
 Run
-~~~
+----------
 
 -  ``npm run start``
 
 Build
-~~~~~
+----------
 
 -  ``npm run build``
 
 ------------------------------------------------------------------------------
 
-Request user authorization to dapp
+activate
 ==================================
 
-Developer can connect TronLink wallet and request user authorization to
-dapp using the async ``activate`` method
+Request user authorization to dapp which connect to TronLink wallet and
 
 Response
-~~~~~~~~
+--------------------
 
 +-----------------------------------+-----------------------------------+
 | Scenario                          | Response                          |
@@ -64,7 +63,7 @@ Response
 +-----------------------------------+-----------------------------------+
 
 Status
-~~~~~~
+----------
 
 =========== ========================
 Status code Description
@@ -77,7 +76,7 @@ Status code Description
 =========== ========================
 
 Example
-~~~~~~~
+----------
 
 ::
 
@@ -93,25 +92,25 @@ Example
 
 ------------------------------------------------------------------------------
 
-Listen to TronLink events
+on
 =========================
 
-Developer can listen to the TronLink events using the ``on`` method
+Listen to TronLink events
 
 Parameters
-~~~~~~~~~~
+--------------------
 
 ======== =========================================== ========
 Argument Description                                 Type
 ======== =========================================== ========
-\_action Action name of the event to listen          String
+_action  Action name of the event to listen          String
 cb       Call back function in response to the event Function
 ======== =========================================== ========
 
 .. _response-1:
 
 Response
-~~~~~~~~
+--------------------
 
 =========================================================== =========
 Scenario                                                    Response
@@ -121,7 +120,7 @@ Failed to add event listener                                ``false``
 =========================================================== =========
 
 Event action name
-~~~~~~~~~~~~~~~~~
+---------------------------------
 
 +-----------------------------------+-----------------------------------+
 | Event action                      | Description                       |
@@ -141,7 +140,7 @@ Event action name
 .. _example-1:
 
 Example
-~~~~~~~
+----------
 
 ::
 
