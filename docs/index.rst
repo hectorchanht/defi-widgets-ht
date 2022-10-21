@@ -1,8 +1,9 @@
 =================================
-TRON developer hub
+JUST Foundation
 =================================
+ 
 
-Welcome to the TRON developer hub. You'll find comprehensive guides and documentation to help you start working with TRON as quickly as possible, as well as support if you get stuck. Let's jump right in!
+Welcome. You'll find comprehensive guides and documentation to help you start working with TRON as quickly as possible, as well as support if you get stuck. Let's jump right in!
 
 .. toctree::
    :maxdepth: 2
