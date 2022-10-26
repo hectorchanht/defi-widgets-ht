@@ -1,9 +1,17 @@
 =================================
-JUST Foundation
+JUST Foundation - DEFI widgets
 =================================
- 
 
-Welcome. You'll find comprehensive guides and documentation to help you start working with TRON as quickly as possible, as well as support if you get stuck. Let's jump right in!
+DEFI widgets is a `Tron Network <https://tron.network/>`_ project aims to provides common functions and UI components for developers to build defi applications.
+
+:ref:`contract-interact`_ wraps `Tronweb object <https://developers.tron.network/reference/tronweb-object>`_ into common functions. 
+
+:ref:`sign-steps` signs transactions and able to listen its event updates.
+ 
+:ref:`transaction-confirm` provides an UI in react modal components on transaction updates with customizable info. 
+
+:ref:`tronweb-connector` connects users to tron network using `tronlink <https://www.tronlink.org/>`_ wallet extension and return `Tronweb object <https://developers.tron.network/reference/tronweb-object>`_. 
+
 
 .. toctree::
    :maxdepth: 2

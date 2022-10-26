@@ -1,3 +1,5 @@
+.. _contract-interact:
+
 =========================
 contract-interact
 =========================
@@ -60,11 +62,9 @@ and the await keyword is permitted within it. The return type is
 `Promise
 object <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise>`__.
 
-Check “/defi-demo/src/routes/contract.js” for real world
-implementation.
+Check ``/defi-demo/src/routes/contract.js`` for real world implementation.
 
-Check “/packages/contract-interact/src/index.ts” or
-“/packages/contract-interact/dist/index.d.ts” for code source.
+Check ``/packages/contract-interact/src/index.ts`` or ``/packages/contract-interact/dist/index.d.ts`` for code source.
 
 ------------------------------------------------------------------------------
 
