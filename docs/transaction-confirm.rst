@@ -1,3 +1,5 @@
+.. _transaction-confirm:
+
 ===========================
 transaction-confirm
 ===========================

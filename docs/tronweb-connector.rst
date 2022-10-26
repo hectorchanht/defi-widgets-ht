@@ -1,3 +1,5 @@
+.. _tronweb-connector:
+
 =========================
 tronweb-connector
 =========================
