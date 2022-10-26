@@ -4,7 +4,7 @@ JUST Foundation - DEFI widgets
 
 DEFI widgets is a `Tron Network <https://tron.network/>`_ project aims to provides common functions and UI components for developers to build defi applications.
 
-:ref:`contract-interact`_ wraps `Tronweb object <https://developers.tron.network/reference/tronweb-object>`_ into common functions. 
+:ref:`contract-interact` wraps `Tronweb object <https://developers.tron.network/reference/tronweb-object>`_ into common functions. 
 
 :ref:`sign-steps` signs transactions and able to listen its event updates.
  
