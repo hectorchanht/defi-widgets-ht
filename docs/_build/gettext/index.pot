@@ -1,0 +1,45 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2017-2022, TRON Network Limited
+# This file is distributed under the same license as the justfoundation/defi-widgets package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: justfoundation/defi-widgets \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-11-10 15:12+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../index.rst:16
+msgid "API Reference"
+msgstr ""
+
+#: ../../index.rst:3
+msgid "JUST Foundation - DEFI widgets"
+msgstr ""
+
+#: ../../index.rst:5
+msgid "DEFI widgets is a `Tron Network <https://tron.network/>`_ project aims to provides common functions and UI components for developers to build defi applications."
+msgstr ""
+
+#: ../../index.rst:7
+msgid ":ref:`contract-interact` wraps `Tronweb object <https://developers.tron.network/reference/tronweb-object>`_ into common functions."
+msgstr ""
+
+#: ../../index.rst:9
+msgid ":ref:`sign-steps` signs transactions and able to listen its event updates."
+msgstr ""
+
+#: ../../index.rst:11
+msgid ":ref:`transaction-confirm` provides an UI in react modal components on transaction updates with customizable info."
+msgstr ""
+
+#: ../../index.rst:13
+msgid ":ref:`tronweb-connector` connects users to tron network using `tronlink <https://www.tronlink.org/>`_ wallet extension and return `Tronweb object <https://developers.tron.network/reference/tronweb-object>`_."
+msgstr ""
