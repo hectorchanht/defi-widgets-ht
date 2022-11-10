@@ -11,7 +11,7 @@ developers will be able to:
 -  trigger transaction, sign and broadcast
 -  use the call or view method to query the specific parameters of the
    contract
--  Deploy contract
+-  deploy contract
 -  send trx or other token
 
 ------------------------------------------------------------------------------
@@ -261,7 +261,7 @@ Example
 
    const response = await ContractInteract.broadcast(signedTransaction);
 
-transaction:
+transaction
 -------------------------------
 
 ::
@@ -297,7 +297,7 @@ transaction:
      }
    }
 
-signedTransaction:
+signedTransaction
 ----------------------------------------------
 
 ::

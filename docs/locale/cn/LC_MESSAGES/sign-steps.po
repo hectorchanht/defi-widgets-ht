@@ -1,0 +1,209 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2017-2022, TRON Network Limited
+# This file is distributed under the same license as the
+# justfoundation/defi-widgets package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: justfoundation/defi-widgets \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-11-03 01:03+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.10.3\n"
+
+#: ../../sign-steps.rst:5
+msgid "sign-steps"
+msgstr ""
+
+#: ../../sign-steps.rst:7
+msgid ""
+"sign-steps helps dapp to execute multiple contract signing steps via the "
+"TronLink Chrome extension. With sign-steps, dapp developers will be able "
+"to:"
+msgstr "sign-steps帮助dapp通过TronLink Chrome扩展程序执行多个合约签署步骤。使用sign-steps，开发者将能够："
+
+#: ../../sign-steps.rst:11
+msgid "execute multiple contract signing steps"
+msgstr "执行多个合约签署步骤"
+
+#: ../../sign-steps.rst:12
+msgid "listen to contract signing and reject events"
+msgstr "监听合约签署和拒绝事件"
+
+#: ../../sign-steps.rst:17
+msgid "Get Started"
+msgstr "入门"
+
+#: ../../sign-steps.rst:20
+msgid "Installation"
+msgstr "安装"
+
+#: ../../sign-steps.rst:22
+msgid "``npm i``"
+msgstr ""
+
+#: ../../sign-steps.rst:25
+msgid "Run"
+msgstr "运行"
+
+#: ../../sign-steps.rst:27
+msgid "``npm run start``"
+msgstr ""
+
+#: ../../sign-steps.rst:30
+msgid "Build"
+msgstr "搭建"
+
+#: ../../sign-steps.rst:32
+msgid "``npm run build``"
+msgstr ""
+
+#: ../../sign-steps.rst:37
+msgid "executeContinuousSigns"
+msgstr ""
+
+#: ../../sign-steps.rst:39
+msgid "Execute multiple contract signing steps"
+msgstr "执行多个合约签署步骤"
+
+#: ../../sign-steps.rst:42 ../../sign-steps.rst:98 ../../sign-steps.rst:157
+msgid "Parameters"
+msgstr "参数"
+
+#: ../../sign-steps.rst:45 ../../sign-steps.rst:101 ../../sign-steps.rst:160
+msgid "Argument"
+msgstr "参数"
+
+#: ../../sign-steps.rst:45 ../../sign-steps.rst:101 ../../sign-steps.rst:111
+#: ../../sign-steps.rst:160
+msgid "Description"
+msgstr "描述"
+
+#: ../../sign-steps.rst:45 ../../sign-steps.rst:101 ../../sign-steps.rst:160
+msgid "Type"
+msgstr "数据类型"
+
+#: ../../sign-steps.rst:47
+msgid "params"
+msgstr ""
+
+#: ../../sign-steps.rst:47
+msgid "Array of parameters for each contract signing step"
+msgstr "每个合约签署步骤的参数数组"
+
+#: ../../sign-steps.rst:47
+msgid "Array of param object"
+msgstr "参数数组"
+
+#: ../../sign-steps.rst:53 ../../sign-steps.rst:84 ../../sign-steps.rst:129
+#: ../../sign-steps.rst:169 ../../sign-steps.rst:192
+msgid "Example"
+msgstr "示例"
+
+#: ../../sign-steps.rst:77
+msgid "continueCurrentSignSteps"
+msgstr ""
+
+#: ../../sign-steps.rst:79
+msgid "Continue the execution at the current step"
+msgstr "在当前步骤继续执行"
+
+#: ../../sign-steps.rst:93
+msgid "on"
+msgstr ""
+
+#: ../../sign-steps.rst:95
+msgid "Listen to contract signing events"
+msgstr "收听合约签署事件"
+
+#: ../../sign-steps.rst:103 ../../sign-steps.rst:162
+msgid "event"
+msgstr ""
+
+#: ../../sign-steps.rst:103 ../../sign-steps.rst:162
+msgid "Name of the event to listen"
+msgstr "要收听的事件的名称"
+
+#: ../../sign-steps.rst:103 ../../sign-steps.rst:162
+msgid "String"
+msgstr "字符串"
+
+#: ../../sign-steps.rst:104 ../../sign-steps.rst:163
+msgid "callback"
+msgstr ""
+
+#: ../../sign-steps.rst:104 ../../sign-steps.rst:163
+msgid "Call back function in response to the event"
+msgstr "响应事件的回调函数"
+
+#: ../../sign-steps.rst:104 ../../sign-steps.rst:163
+msgid "Function"
+msgstr "函数"
+
+#: ../../sign-steps.rst:108
+msgid "Event action name"
+msgstr "事件名称"
+
+#: ../../sign-steps.rst:111
+msgid "Event"
+msgstr "事件"
+
+#: ../../sign-steps.rst:113
+msgid "startAtStep"
+msgstr ""
+
+#: ../../sign-steps.rst:113
+msgid "Start to execute at this step"
+msgstr "在这一步开始执行"
+
+#: ../../sign-steps.rst:115
+msgid "signedAtStep"
+msgstr ""
+
+#: ../../sign-steps.rst:115
+msgid "User signed the contract at this step"
+msgstr "用户在此步骤签署了合约"
+
+#: ../../sign-steps.rst:118
+msgid "errorAtStep"
+msgstr ""
+
+#: ../../sign-steps.rst:118
+msgid "Contract signing encounter error at this step"
+msgstr "合约签署在这一步遇到错误"
+
+#: ../../sign-steps.rst:121
+msgid "completedAllSteps"
+msgstr ""
+
+#: ../../sign-steps.rst:121
+msgid "Completed all contract signing of the current continuous signing execution"
+msgstr "完成本次执行的所有合约签署"
+
+#: ../../sign-steps.rst:150
+msgid "off"
+msgstr ""
+
+#: ../../sign-steps.rst:152
+msgid "Remove the contract signing events listener"
+msgstr "移除合约签署事件监听器"
+
+#: ../../sign-steps.rst:182
+msgid "Get the current step number"
+msgstr "获取当前步数"
+
+#: ../../sign-steps.rst:185
+msgid "Response"
+msgstr "返回值"
+
+#: ../../sign-steps.rst:187
+msgid "The step number of the existing continuous signature"
+msgstr ""
+

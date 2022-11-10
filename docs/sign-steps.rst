@@ -176,6 +176,7 @@ Example
    SignSteps.off('completedAllSteps', completedAllStepsCallback)
 
 ------------------------------------------------------------------------------
+
 getCurrentStepNumber
 ===========================
 
