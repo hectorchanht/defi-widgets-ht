@@ -1,3 +1,5 @@
+.. _sign-steps:
+
 ==================
 sign-steps
 ==================
@@ -174,6 +176,7 @@ Example
    SignSteps.off('completedAllSteps', completedAllStepsCallback)
 
 ------------------------------------------------------------------------------
+
 getCurrentStepNumber
 ===========================
 

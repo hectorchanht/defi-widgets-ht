@@ -1,3 +1,5 @@
+.. _contract-interact:
+
 =========================
 contract-interact
 =========================
@@ -9,7 +11,7 @@ developers will be able to:
 -  trigger transaction, sign and broadcast
 -  use the call or view method to query the specific parameters of the
    contract
--  Deploy contract
+-  deploy contract
 -  send trx or other token
 
 ------------------------------------------------------------------------------
@@ -60,11 +62,9 @@ and the await keyword is permitted within it. The return type is
 `Promise
 object <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise>`__.
 
-Check “/defi-demo/src/routes/contract.js” for real world
-implementation.
+Check ``/defi-demo/src/routes/contract.js`` for real world implementation.
 
-Check “/packages/contract-interact/src/index.ts” or
-“/packages/contract-interact/dist/index.d.ts” for code source.
+Check ``/packages/contract-interact/src/index.ts`` or ``/packages/contract-interact/dist/index.d.ts`` for code source.
 
 ------------------------------------------------------------------------------
 
@@ -261,7 +261,7 @@ Example
 
    const response = await ContractInteract.broadcast(signedTransaction);
 
-transaction:
+transaction
 -------------------------------
 
 ::
@@ -297,7 +297,7 @@ transaction:
      }
    }
 
-signedTransaction:
+signedTransaction
 ----------------------------------------------
 
 ::

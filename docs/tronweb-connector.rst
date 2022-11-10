@@ -1,3 +1,5 @@
+.. _tronweb-connector:
+
 =========================
 tronweb-connector
 =========================
@@ -35,7 +37,7 @@ Build
 activate
 ==================================
 
-Request user authorization to dapp which connect to TronLink wallet and
+Request user authorization to dapp which connect to TronLink wallet
 
 Response
 --------------------

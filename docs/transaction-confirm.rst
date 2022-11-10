@@ -1,3 +1,5 @@
+.. _transaction-confirm:
+
 ===========================
 transaction-confirm
 ===========================
@@ -128,7 +130,8 @@ Parameters
 |                         | the pending transaciton |                  |
 |                         | list                    |                  |
 +-------------------------+-------------------------+------------------+
-| saveAmount              | Maximum                 | number           |
+| saveAmount              | Maximum capacity of the | int              |
+|                         | list                    |                  |
 +-------------------------+-------------------------+------------------+
 | tronweb                 | Tronweb instance        | any              |
 +-------------------------+-------------------------+------------------+
@@ -209,6 +212,7 @@ Example
    logTransaction(transaction, 2)
 
 ------------------------------------------------------------------------------
+
 getDescription
 =====================
 

@@ -24,3 +24,9 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 import sphinx_rtd_theme
 
 html_theme = "sphinx_rtd_theme"
+
+
+# -- Options for sphinx-intl 
+
+locale_dirs = ['locale/']
+gettext_compact = False
