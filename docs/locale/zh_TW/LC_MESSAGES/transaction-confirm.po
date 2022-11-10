@@ -26,27 +26,27 @@ msgstr ""
 msgid ""
 "transaction-confirm helps dapp to handle the event of newly created "
 "transactions. With transaction-confirm, dapp developers will be able to:"
-msgstr "transaction-confirm帮助dapp处理新创建的交易事件。 使用transaction-confirm，开发者将能够："
+msgstr "transaction-confirm幫助dapp處理新建立的交易事件。 使用transaction-confirm，開發者將能夠："
 
 #: ../../transaction-confirm.rst:10
 msgid "save and update transaction detail in browser’s local storage"
-msgstr "保存和更新交易详情在浏览器的本地存储中"
+msgstr "保存和更新交易詳情在瀏覽器的本地儲存中"
 
 #: ../../transaction-confirm.rst:11
 msgid "display transaction confirm status on the transaction modal"
-msgstr "在交易弹出窗口上显示交易状态"
+msgstr "在交易彈出窗口上顯示交易狀態"
 
 #: ../../transaction-confirm.rst:12
 msgid "display notification message if transaction’s status was changed"
-msgstr "交易状态改变时显示通知消息"
+msgstr "交易狀態改變時顯示通知消息"
 
 #: ../../transaction-confirm.rst:17
 msgid "Get Started"
-msgstr "入门"
+msgstr "入門"
 
 #: ../../transaction-confirm.rst:20
 msgid "Installation"
-msgstr "安装"
+msgstr "安裝"
 
 #: ../../transaction-confirm.rst:22
 msgid "``npm i``"
@@ -54,7 +54,7 @@ msgstr ""
 
 #: ../../transaction-confirm.rst:25
 msgid "Run"
-msgstr "运行"
+msgstr "運行"
 
 #: ../../transaction-confirm.rst:27
 msgid "``npm run start``"
@@ -74,14 +74,14 @@ msgstr ""
 
 #: ../../transaction-confirm.rst:39
 msgid "Display the transaction modal with step info"
-msgstr "显示带有步骤资讯的交易弹出窗口"
+msgstr "顯示帶有步驟資訊的交易彈出窗口"
 
 #: ../../transaction-confirm.rst:42 ../../transaction-confirm.rst:120
 #: ../../transaction-confirm.rst:162 ../../transaction-confirm.rst:194
 #: ../../transaction-confirm.rst:222 ../../transaction-confirm.rst:272
 #: ../../transaction-confirm.rst:313 ../../transaction-confirm.rst:339
 msgid "Parameters"
-msgstr "参数"
+msgstr "參數"
 
 #: ../../transaction-confirm.rst:45 ../../transaction-confirm.rst:54
 #: ../../transaction-confirm.rst:74 ../../transaction-confirm.rst:123
@@ -89,7 +89,7 @@ msgstr "参数"
 #: ../../transaction-confirm.rst:225 ../../transaction-confirm.rst:275
 #: ../../transaction-confirm.rst:316 ../../transaction-confirm.rst:342
 msgid "Argument"
-msgstr "参数"
+msgstr "參數"
 
 #: ../../transaction-confirm.rst:45 ../../transaction-confirm.rst:54
 #: ../../transaction-confirm.rst:74 ../../transaction-confirm.rst:123
@@ -105,7 +105,7 @@ msgstr "描述"
 #: ../../transaction-confirm.rst:225 ../../transaction-confirm.rst:275
 #: ../../transaction-confirm.rst:316 ../../transaction-confirm.rst:342
 msgid "Type"
-msgstr "数据类型"
+msgstr "資料類型"
 
 #: ../../transaction-confirm.rst:47
 msgid "stepInfo"
@@ -113,7 +113,7 @@ msgstr ""
 
 #: ../../transaction-confirm.rst:47
 msgid "The info to display in the modal"
-msgstr "要显示的步骤资讯"
+msgstr "要顯示的步驟資訊"
 
 #: ../../transaction-confirm.rst:47 ../../transaction-confirm.rst:65
 #: ../../transaction-confirm.rst:167 ../../transaction-confirm.rst:168
@@ -121,7 +121,7 @@ msgstr "要显示的步骤资讯"
 #: ../../transaction-confirm.rst:278 ../../transaction-confirm.rst:318
 #: ../../transaction-confirm.rst:346
 msgid "object"
-msgstr "物体"
+msgstr "物體"
 
 #: ../../transaction-confirm.rst:48
 msgid "tronscanLink"
@@ -129,7 +129,7 @@ msgstr ""
 
 #: ../../transaction-confirm.rst:48
 msgid "The tronscan site for <a> redirection"
-msgstr "用于重定向的tronscan链接"
+msgstr "用於重新導向的tronscan連結"
 
 #: ../../transaction-confirm.rst:48 ../../transaction-confirm.rst:62
 #: ../../transaction-confirm.rst:76 ../../transaction-confirm.rst:78
@@ -139,7 +139,7 @@ msgstr "用于重定向的tronscan链接"
 #: ../../transaction-confirm.rst:201 ../../transaction-confirm.rst:229
 #: ../../transaction-confirm.rst:277
 msgid "string"
-msgstr "字符串"
+msgstr "字串"
 
 #: ../../transaction-confirm.rst:51
 msgid "stepInfo:"
@@ -153,11 +153,11 @@ msgstr ""
 msgid ""
 "1: Waiting for customer response 2: Transaction accepted 3: Transaction "
 "rejected"
-msgstr "1: 等待用户回应 2: 交易已被接受 3: 交易被拒绝"
+msgstr "1: 等待使用者回應 2: 交易已被接受 3: 交易被拒絕"
 #: ../../transaction-confirm.rst:56 ../../transaction-confirm.rst:200
 #: ../../transaction-confirm.rst:227
 msgid "int"
-msgstr "整数"
+msgstr "整數"
 
 #: ../../transaction-confirm.rst:62
 msgid "txId"
@@ -173,7 +173,7 @@ msgstr ""
 
 #: ../../transaction-confirm.rst:65
 msgid "Additional configuration of the modal"
-msgstr "弹窗的附加配置"
+msgstr "彈窗的附加組態"
 
 #: ../../transaction-confirm.rst:71
 msgid "customObj:"
@@ -185,7 +185,7 @@ msgstr ""
 
 #: ../../transaction-confirm.rst:76
 msgid "Modal title"
-msgstr "标题"
+msgstr "標題"
 
 #: ../../transaction-confirm.rst:78 ../../transaction-confirm.rst:201
 msgid "lang"
@@ -193,7 +193,7 @@ msgstr ""
 
 #: ../../transaction-confirm.rst:78
 msgid "Language of modal content: en/zh"
-msgstr "语言：en/zh"
+msgstr "語言：en/zh"
 
 #: ../../transaction-confirm.rst:81
 msgid "wait_confirm"
@@ -201,7 +201,7 @@ msgstr ""
 
 #: ../../transaction-confirm.rst:81
 msgid "Custom message for the waiting for confirmation scenario"
-msgstr "等待确认的自定义消息"
+msgstr "等待確認的自定義消息"
 
 #: ../../transaction-confirm.rst:85
 msgid "confirm_wallet"
@@ -209,7 +209,7 @@ msgstr ""
 
 #: ../../transaction-confirm.rst:85
 msgid "Custom message to ask customer to confirm the transaction in the wallet"
-msgstr "要求客户确认钱包中的交易的自定义消息"
+msgstr "要求客戶確認錢包中的交易的自定義消息"
 
 #: ../../transaction-confirm.rst:90
 msgid "submitted"
@@ -217,7 +217,7 @@ msgstr ""
 
 #: ../../transaction-confirm.rst:90
 msgid "Custom message for the transaction submitted scenario"
-msgstr "已提交交易的自定义消息"
+msgstr "已提交交易的自定義消息"
 
 #: ../../transaction-confirm.rst:94
 msgid "view_on_tronscan"
@@ -225,7 +225,7 @@ msgstr ""
 
 #: ../../transaction-confirm.rst:94
 msgid "Custom message for the tronscan link"
-msgstr "tronscan链接的自定义消息"
+msgstr "tronscan鏈接的自定義消息"
 
 #: ../../transaction-confirm.rst:97
 msgid "cancelled"
@@ -233,7 +233,7 @@ msgstr ""
 
 #: ../../transaction-confirm.rst:97
 msgid "Custom message for the transaction cancelled scenario"
-msgstr "交易取消的自定义消息"
+msgstr "交易取消的自定義消息"
 
 #: ../../transaction-confirm.rst:103 ../../transaction-confirm.rst:141
 #: ../../transaction-confirm.rst:174 ../../transaction-confirm.rst:207
@@ -250,7 +250,7 @@ msgstr ""
 msgid ""
 "Add new transaction to the pending transaction list in the browser’s "
 "local storage"
-msgstr "将新交易添加到本地存储中的待处理交易列表"
+msgstr "將新交易新增到本地存儲中的待處理交易列表"
 
 #: ../../transaction-confirm.rst:125
 msgid "tx"
@@ -258,13 +258,13 @@ msgstr ""
 
 #: ../../transaction-confirm.rst:125
 msgid "The transaction object returned from tronweb"
-msgstr "tronweb返回的交易对象"
+msgstr "tronweb返回的交易對象"
 
 #: ../../transaction-confirm.rst:128
 msgid ""
 "Custom data to be saved with the transaction in the pending transaciton "
 "list"
-msgstr "与待处理交易列表中的交易一起保存的自定义数据"
+msgstr "與待處理交易列表中的交易一起保存的自定義數據"
 
 #: ../../transaction-confirm.rst:128 ../../transaction-confirm.rst:135
 msgid "any"
@@ -280,7 +280,7 @@ msgstr "列表的最大容量"
 
 #: ../../transaction-confirm.rst:133 ../../transaction-confirm.rst:344
 msgid "number"
-msgstr "整数"
+msgstr "整數"
 
 #: ../../transaction-confirm.rst:135 ../../transaction-confirm.rst:168
 #: ../../transaction-confirm.rst:278 ../../transaction-confirm.rst:318
@@ -291,7 +291,7 @@ msgstr ""
 #: ../../transaction-confirm.rst:135 ../../transaction-confirm.rst:278
 #: ../../transaction-confirm.rst:318 ../../transaction-confirm.rst:346
 msgid "Tronweb instance"
-msgstr "Tronweb实例"
+msgstr "Tronweb實例"
 
 #: ../../transaction-confirm.rst:155
 msgid "updateTransactionInList"
@@ -301,7 +301,7 @@ msgstr ""
 msgid ""
 "Update an existing transaction in the pending transaction list in "
 "localStorage"
-msgstr "更新本地存储中待处理交易列表中的现有交易"
+msgstr "更新本地存儲中待處理交易列表中的現有交易"
 
 #: ../../transaction-confirm.rst:167 ../../transaction-confirm.rst:199
 msgid "record"
@@ -313,7 +313,7 @@ msgstr "要被更新的交易物件"
 
 #: ../../transaction-confirm.rst:168
 msgid "The Tronweb instance"
-msgstr "Tronweb实例"
+msgstr "Tronweb實例"
 
 #: ../../transaction-confirm.rst:187
 msgid "logTransaction"
@@ -321,7 +321,7 @@ msgstr ""
 
 #: ../../transaction-confirm.rst:189
 msgid "Update transaction status and display notification message"
-msgstr "更新交易状态并显示通知消息"
+msgstr "更新交易狀態並顯示通知消息"
 
 #: ../../transaction-confirm.rst:199
 msgid "Transaction object to be updated"
@@ -333,15 +333,15 @@ msgstr ""
 
 #: ../../transaction-confirm.rst:200
 msgid "New status: 1/2/3"
-msgstr "新状态: 1/2/3"
+msgstr "新狀態: 1/2/3"
 
 #: ../../transaction-confirm.rst:201
 msgid "Language of the notifaction message content"
-msgstr "通知消息的语言"
+msgstr "通知消息的語言"
 
 #: ../../transaction-confirm.rst:217
 msgid "Get transaction description dom object"
-msgstr "获取交易详情的dom物件"
+msgstr "獲取交易詳情的dom物件"
 
 #: ../../transaction-confirm.rst:227
 msgid "type"
@@ -349,7 +349,7 @@ msgstr ""
 
 #: ../../transaction-confirm.rst:227
 msgid "Transaction status value"
-msgstr "交易状态值"
+msgstr "交易狀態值"
 
 #: ../../transaction-confirm.rst:228
 msgid "item"
@@ -365,7 +365,7 @@ msgstr ""
 
 #: ../../transaction-confirm.rst:229
 msgid "The status text display on the dom object"
-msgstr "dom物件上的显示文本"
+msgstr "dom物件上的顯示文字"
 
 #: ../../transaction-confirm.rst:233 ../../transaction-confirm.rst:284
 msgid "Response"
@@ -373,7 +373,7 @@ msgstr "返回值"
 
 #: ../../transaction-confirm.rst:235
 msgid "The dom object"
-msgstr "交易详情的dom物件"
+msgstr "交易詳情的dom物件"
 
 #: ../../transaction-confirm.rst:265
 msgid "getTransactionInfo"
@@ -381,7 +381,7 @@ msgstr ""
 
 #: ../../transaction-confirm.rst:267
 msgid "Get the latest status of a transaction info"
-msgstr "获取指定交易的最新状态"
+msgstr "獲取指定交易的最新狀態"
 
 #: ../../transaction-confirm.rst:277
 msgid "txid"
@@ -405,7 +405,7 @@ msgid ""
 " the browser’s local storage, and use ``getTransactionInfo`` to check the"
 " latest status of each pending transaction. If the status was updated, "
 "call ``logTransaction`` to update and save the transaction."
-msgstr "从本地存储中查看交易列表中每笔待处理交易的状态，并使用 ``getTransactionInfo`` 查看每笔待处理交易的最新状态。 如果状态已更新，则调用 ``logTransaction`` 更新并保存交易。"
+msgstr "從本地存儲中查看交易列表中每筆待處理交易的狀態，並使用 ``getTransactionInfo`` 查看每筆待處理交易的最新狀態。 如果狀態已更新，則調用 ``logTransaction`` 更新並保存交易。"
 
 #: ../../transaction-confirm.rst:333
 msgid "startPendingTransactionCheck"
@@ -413,7 +413,7 @@ msgstr ""
 
 #: ../../transaction-confirm.rst:334
 msgid "Constantly check the status of each pending transactions"
-msgstr "不断检查每个待处理交易的状态"
+msgstr "不斷檢查每個待處理交易的狀態"
 
 #: ../../transaction-confirm.rst:344
 msgid "milliseconds"
@@ -421,5 +421,5 @@ msgstr ""
 
 #: ../../transaction-confirm.rst:344
 msgid "The interval of each ``checkPendingTransaction`` call"
-msgstr "每个 ``checkPendingTransaction`` 调用的间隔"
+msgstr "每個 ``checkPendingTransaction`` 調用的間隔"
 

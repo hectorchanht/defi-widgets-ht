@@ -27,27 +27,27 @@ msgid ""
 "tronweb-connector helps dapp to interact with the TRON network via the "
 "TronLink Chrome extension. With tronweb-connector, dapp developers will "
 "be able to:"
-msgstr “tronweb-connector帮助dapp通过TronLink Chrome扩展程序。使用tronweb-connector，开发者将能够：”
+msgstr “tronweb-connector幫助dapp通過TronLink Chrome擴展程序。使用tronweb-connector，開發者將能夠：”
 
 #: ../../tronweb-connector.rst:11
 msgid "request account information authorization on the dapp"
-msgstr "在dapp上请求账户信息授权"
+msgstr "在dapp上請求帳戶資訊授權"
 
 #: ../../tronweb-connector.rst:12
 msgid "retrieve the TronLink instance"
-msgstr "检索 TronLink 实例"
+msgstr "檢索 TronLink 實例"
 
 #: ../../tronweb-connector.rst:13
 msgid "listen to TronLink events"
-msgstr "收听 TronLink 事件"
+msgstr "收聽 TronLink 事件"
 
 #: ../../tronweb-connector.rst:18
 msgid "Get Started"
-msgstr "入门"
+msgstr "入門"
 
 #: ../../tronweb-connector.rst:21
 msgid "Installation"
-msgstr "安装"
+msgstr "安裝"
 
 #: ../../tronweb-connector.rst:23
 msgid "``npm i``"
@@ -55,7 +55,7 @@ msgstr ""
 
 #: ../../tronweb-connector.rst:26
 msgid "Run"
-msgstr "运行"
+msgstr "運行"
 
 #: ../../tronweb-connector.rst:28
 msgid "``npm run start``"
@@ -75,7 +75,7 @@ msgstr ""
 
 #: ../../tronweb-connector.rst:40
 msgid "Request user authorization to dapp which connect to TronLink wallet"
-msgstr "向连接到 TronLink 钱包的 dapp 请求用户授权"
+msgstr "向連接到 TronLink 錢包的 dapp 請求使用者授權"
 
 #: ../../tronweb-connector.rst:43 ../../tronweb-connector.rst:46
 #: ../../tronweb-connector.rst:114 ../../tronweb-connector.rst:117
@@ -88,41 +88,41 @@ msgstr "情景"
 
 #: ../../tronweb-connector.rst:48 ../../tronweb-connector.rst:73
 msgid "TronLink not installed"
-msgstr "未安装 TronLink"
+msgstr "未安裝 TronLink"
 
 #: ../../tronweb-connector.rst:48 ../../tronweb-connector.rst:56
 msgid "Error response object"
-msgstr "错误返回物件"
+msgstr "錯誤返回物件"
 
 #: ../../tronweb-connector.rst:50
 msgid ""
 "TronLink installed and the user did not provide authorization before. "
 "Authorization box will be shown and the user ACCEPTS the authorization "
 "request"
-msgstr "已安装 TronLink 且用户之前未提供授权。 将显示授权框，用户接受授权请求"
+msgstr "已安裝 TronLink 且使用者之前未提供授權。 將顯示授權框，使用者接受授權請求"
 
 #: ../../tronweb-connector.rst:50 ../../tronweb-connector.rst:62
 msgid "TronLink instance"
-msgstr "TronLink实例"
+msgstr "TronLink實例"
 
 #: ../../tronweb-connector.rst:56
 msgid ""
 "TronLink installed and the user did not provide authorization before. "
 "Authorization box will be shown and the user REJECTS the authorization "
 "request"
-msgstr "已安装 TronLink 且用户之前未提供授权。 将显示授权框并且用户拒绝授权请求"
+msgstr "已安裝 TronLink 且使用者之前未提供授權。 將顯示授權框並且使用者拒絕授權請求"
 
 #: ../../tronweb-connector.rst:62
 msgid "TronLink installed and user provided authorization before"
-msgstr "之前安装了 TronLink 并且用户提供了授权"
+msgstr "之前安裝了 TronLink 並且使用者提供了授權"
 
 #: ../../tronweb-connector.rst:67
 msgid "Status"
-msgstr "状态码"
+msgstr "狀態碼"
 
 #: ../../tronweb-connector.rst:70
 msgid "Status code"
-msgstr "状态码"
+msgstr "狀態碼"
 
 #: ../../tronweb-connector.rst:70 ../../tronweb-connector.rst:105
 #: ../../tronweb-connector.rst:127
@@ -135,7 +135,7 @@ msgstr ""
 
 #: ../../tronweb-connector.rst:72
 msgid "User refuse to authorize"
-msgstr "用户拒绝授权"
+msgstr "使用者拒絕授權"
 
 #: ../../tronweb-connector.rst:73
 msgid "4002"
@@ -147,7 +147,7 @@ msgstr ""
 
 #: ../../tronweb-connector.rst:74
 msgid "Unknown error"
-msgstr "未知错误"
+msgstr "未知錯誤"
 
 #: ../../tronweb-connector.rst:75
 msgid "4004"
@@ -155,7 +155,7 @@ msgstr ""
 
 #: ../../tronweb-connector.rst:75
 msgid "User not log in"
-msgstr "用户未登录"
+msgstr "使用者未登錄"
 
 #: ../../tronweb-connector.rst:76
 msgid "200"
@@ -163,7 +163,7 @@ msgstr ""
 
 #: ../../tronweb-connector.rst:76
 msgid "TronLink installed"
-msgstr "已安装 TronLink"
+msgstr "已安裝 TronLink"
 
 #: ../../tronweb-connector.rst:80 ../../tronweb-connector.rst:144
 msgid "Example"
@@ -179,15 +179,15 @@ msgstr ""
 
 #: ../../tronweb-connector.rst:102
 msgid "Parameters"
-msgstr "参数"
+msgstr "參數"
 
 #: ../../tronweb-connector.rst:105
 msgid "Argument"
-msgstr "参数"
+msgstr "參數"
 
 #: ../../tronweb-connector.rst:105
 msgid "Type"
-msgstr "数据类型"
+msgstr "資料類型"
 
 #: ../../tronweb-connector.rst:107
 msgid "_action"
@@ -195,11 +195,11 @@ msgstr ""
 
 #: ../../tronweb-connector.rst:107
 msgid "Action name of the event to listen"
-msgstr "要监听的事件的事件名称"
+msgstr "要監聽的事件的事件名稱"
 
 #: ../../tronweb-connector.rst:107
 msgid "String"
-msgstr "字符串"
+msgstr "字串"
 
 #: ../../tronweb-connector.rst:108
 msgid "cb"
@@ -207,14 +207,14 @@ msgstr ""
 
 #: ../../tronweb-connector.rst:108
 msgid "Call back function in response to the event"
-msgstr "响应事件的回调函数"
+msgstr "響應事件的回呼函數"
 
 #: ../../tronweb-connector.rst:108
 msgid "Function"
-msgstr "函数"
+msgstr "函數"
 #: ../../tronweb-connector.rst:119
 msgid "Successfully added event listener to specified event action"
-msgstr "已成功将事件侦听器添加到指定事件"
+msgstr "已成功將事件偵聽器新增到指定事件"
 
 #: ../../tronweb-connector.rst:119
 msgid "``true``"
@@ -222,7 +222,7 @@ msgstr ""
 
 #: ../../tronweb-connector.rst:120
 msgid "Failed to add event listener"
-msgstr "添加事件监听失败"
+msgstr "新增事件監聽失敗"
 
 #: ../../tronweb-connector.rst:120
 msgid "``false``"
@@ -230,7 +230,7 @@ msgstr ""
 
 #: ../../tronweb-connector.rst:124
 msgid "Event action name"
-msgstr "事件名称"
+msgstr "事件名稱"
 
 #: ../../tronweb-connector.rst:127
 msgid "Event action"
@@ -242,7 +242,7 @@ msgstr ""
 
 #: ../../tronweb-connector.rst:129
 msgid "when switching accounts"
-msgstr "切换账户时"
+msgstr "切換賬戶時"
 
 #: ../../tronweb-connector.rst:131
 msgid "chainChanged"
@@ -250,7 +250,7 @@ msgstr ""
 
 #: ../../tronweb-connector.rst:131
 msgid "when switching chains"
-msgstr "切换链时"
+msgstr "切換鏈時"
 
 #: ../../tronweb-connector.rst:133
 msgid "connectWeb"
@@ -258,7 +258,7 @@ msgstr ""
 
 #: ../../tronweb-connector.rst:133
 msgid "when the ``active connection`` dapp is made in the plugin popup page"
-msgstr "插件弹出窗口中，主动连接dapp时Tronlink"
+msgstr "外掛彈出窗口中，主動連接dapp時Tronlink"
 
 #: ../../tronweb-connector.rst:137
 msgid "disconnectWeb"
@@ -266,5 +266,5 @@ msgstr ""
 
 #: ../../tronweb-connector.rst:137
 msgid "when the ``active reject`` dapp is in the plugin popup page"
-msgstr "插件弹出窗口中，主动拒绝dapp时"
+msgstr "外掛彈出窗口中，主動拒絕dapp時"
 
